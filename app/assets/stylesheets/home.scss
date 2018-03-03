@@ -34,11 +34,29 @@
 //   background: skyblue;
 // }
 
-nav{
-  background-color: red;
-  border-color: green;
+ul{
+  // top: 0px;
+  // left: 0px;
+  // width: auto;
+  height: 100%;
+  background: red;
+  overflow: hidden;
 }
+// body header nav ul{
+//   position: fixed;
+//   top: 0px;
+//   left: 0px;
+//   width: auto;
+//   height: 100%;
+//   background: red;
+//   overflow: hidden;
+// }
+
 
 ul{
   list-style: none;
+}
+
+.drawer-brand{
+  font-size: 50px;
 }
