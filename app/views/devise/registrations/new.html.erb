@@ -1,31 +1,69 @@
-<h2>Sign up</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+
+
+<div class="alert alert-warning" role="alert">
   <%= devise_error_messages! %>
+</div>
 
-
+<div class="wrapper">
+<h2>Sign up</h2>
+ <hr class="colorgraph"><br>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 
   <div class="field">
-    <%= f.label :username %>
-    <%= f.text_field :username, class: "form-control", placeholder: "ユーザー名" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+    <%= f.text_field :username, autocomplete: "off", placeholder: "User Name" %>
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+    <%= f.password_field :password, autocomplete: "off" ,placeholder: "Password"%>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
+  <div class="field">
+    <%= f.password_field :password_confirmation, autocomplete: "off",  placeholder: "Password Confirmation"%>
   </div>
+
+  <!--<div class="actions">
+    <%= f.submit "Sign in" %>
+  </div> -->
+
+  <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
 <% end %>
 
-<%= render "devise/shared/links" %>
+<!--<%= render "devise/shared/links" %> -->
+</div>
+
+<style>
+.wrapper {
+
+
+  text-align: center;
+  padding: 30px;
+  max-width: 350px;
+  width: 100% !important;
+  background-color: #F7F7F7;
+  margin: 0 auto;
+  border-radius: 2px;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  font-family: roboto;
+}
+.btn{
+  margin-top: 20px;
+}
+.field{
+
+
+}
+.colorgraph {
+  height: 7px;
+  border-top: 0;
+  background: #c4e17f;
+  border-radius: 5px;
+  background-image: -webkit-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+  background-image: -moz-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+  background-image: -o-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+  background-image: linear-gradient(to right, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+}
+
+
+</style>
