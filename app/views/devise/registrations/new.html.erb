@@ -10,16 +10,15 @@
 <!-- エラーが両方に出る  resource?
 signupでエラー出したらsignupに戻る -->
 <div class="wrapper">
-    <input id="sign_in" type="radio" name="tab_item" checked>
-    <label class="tab_item tab1" for="sign_in">Sign In</label>
-    <input id="sign_up" type="radio" name="tab_item" >
-    <label class="tab_item tab2" for="sign_up">Sign Up</label>
+  <a class="tab_item tab1" href="/users/sign_in">Sign in</a>
+  <p class="tab_item_current">Sign up</p>
+
 
     <div class="tab_content" id="sign_up_content">
 
       <h2>Sign Up</h2>
       <hr class="colorgraph"><br>
-      <%= devise_error_messages %>
+        <%= devise_error_messages %>
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 
       <div class="field">
@@ -42,7 +41,7 @@ signupでエラー出したらsignupに戻る -->
     <!--<%= render "devise/shared/links" %> -->
     </div>
 
-    <div class ="tab_content" id="sign_in_content">
+    <!-- <div class ="tab_content" id="sign_in_content">
 
       <h2>Sign In</h2>
       <hr class="colorgraph"><br>
@@ -59,7 +58,7 @@ signupでエラー出したらsignupに戻る -->
       <button class="btn btn-lg" type="submit">Sign In</button>
       <% end %>
 
-    </div>
+    </div> -->
 
 </div>
 
@@ -101,20 +100,35 @@ h2{
   transition: all 0.2s ease;
 }
 
+.tab_item_current{
+  font-style: italic;
+  width: 50%;
+  height: 50px;
+  /* border-bottom: 3px solid rgba(0, 0, 0, 0.2); */
+  margin-bottom: 0;
+   /* background-color: #fdb137; */
+     /* background-color: rgba(253, 177, 55, 0.5); */
+   background-color: #fff;
+  line-height: 50px;
+  font-size: 16px;
+  text-align: center;
+   /* color: #fff; */
+   color:#fdb137;
+   /* color:black; */
+  display: block;
+  float: left;
+  text-align: center;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+
 .tab1{
   border-right: 2px solid rgba(0, 0, 0, 0.2);
 }
-.tab2{
-  border-left: 2px solid rgba(0, 0, 0, 0.2);
-}
+
 
 .tab_item:hover {
   opacity: 0.75;
-}
-
-/*ラジオボタンを全て消す*/
-input[name="tab_item"] {
-  display: none;
 }
 
 /*タブ切り替えの中身のスタイル*/
@@ -122,10 +136,8 @@ input[name="tab_item"] {
   padding: 40px 40px 0;
   clear: both;
   overflow: hidden;
-  display: none;
+
 }
-
-
 
 #sign_up_content {
   font-style: italic;
@@ -138,33 +150,6 @@ input[name="tab_item"] {
   border-radius: 2px;
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3); */
 
-}
-
-#sign_in_content{
-  font-style: italic;
-  text-align: center;
-  padding:0 30px 30px 30px;
-  margin: 0 auto;
-   /* background-color: rgba(253, 177, 55, 0.3); */
-  /*background-color: #F7F7F7;
-  border-radius: 2px;
-  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3); */
-
-}
-
-/*選択されているタブのコンテンツのみを表示*/
-#sign_up:checked ~ #sign_up_content,
-#sign_in:checked ~ #sign_in_content{
-  display: block;
-}
-
-
-.wrapper input:checked + .tab_item {
-   background-color: #fff;
-   /* background-color: rgba(253, 177, 55, 0.5); */
-   /* color: black; */
-   color: #fdb137;
-  border:none;
 }
 
 
@@ -189,7 +174,7 @@ input[name="tab_item"] {
 input{
   height: 35px;
   width: 200px;
-  padding-left: 5px;
+  padding-left: 8px;
   border: 1px solid #ccc;
 }
 
