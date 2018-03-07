@@ -1,58 +1,206 @@
 
 
 
-<div class="alert alert-warning" role="alert">
+<!-- <div class="alert alert-warning" role="alert">
   <%= devise_error_messages! %>
-</div>
+</div> -->
 
+<!-- <%= devise_error_messages %> -->
+
+<!-- エラーが両方に出る  resource?
+signupでエラー出したらsignupに戻る -->
 <div class="wrapper">
-<h2>Sign up</h2>
- <hr class="colorgraph"><br>
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <input id="sign_in" type="radio" name="tab_item" checked>
+    <label class="tab_item tab1" for="sign_in">Sign In</label>
+    <input id="sign_up" type="radio" name="tab_item" >
+    <label class="tab_item tab2" for="sign_up">Sign Up</label>
 
-  <div class="field">
-    <%= f.text_field :username, autocomplete: "off", placeholder: "User Name" %>
-  </div>
+    <div class="tab_content" id="sign_up_content">
 
-  <div class="field">
-    <%= f.password_field :password, autocomplete: "off" ,placeholder: "Password"%>
-  </div>
+      <h2>Sign Up</h2>
+      <hr class="colorgraph"><br>
+      <%= devise_error_messages %>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 
-  <div class="field">
-    <%= f.password_field :password_confirmation, autocomplete: "off",  placeholder: "Password Confirmation"%>
-  </div>
+      <div class="field">
+        <%= f.text_field :username, autocomplete: "off", placeholder: "User Name" %>
+      </div>
 
-  <!--<div class="actions">
-    <%= f.submit "Sign in" %>
-  </div> -->
+      <div class="field">
+        <%= f.password_field :password, autocomplete: "off" ,placeholder: "Password"%>
+      </div>
 
-  <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
-<% end %>
+      <div class="field">
+        <%= f.password_field :password_confirmation, autocomplete: "off",  placeholder: "Password Confirmation"%>
+      </div>
+      <!--<div class="actions">
+      <%= f.submit "Sign in" %>
+    </div> -->
+    <!--<button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button> -->
+      <button class="btn btn-lg" type="submit">Sign Up</button>
+      <% end %>
+    <!--<%= render "devise/shared/links" %> -->
+    </div>
 
-<!--<%= render "devise/shared/links" %> -->
+    <div class ="tab_content" id="sign_in_content">
+
+      <h2>Sign In</h2>
+      <hr class="colorgraph"><br>
+      <%= error_messages %>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+
+      <div class="field">
+        <%= f.text_field :username, autocomplete: "off", placeholder: "User Name" %>
+      </div>
+
+      <div class="field">
+        <%= f.password_field :password, autocomplete: "off" ,placeholder: "Password"%>
+      </div>
+      <button class="btn btn-lg" type="submit">Sign In</button>
+      <% end %>
+
+    </div>
+
 </div>
 
 <style>
-.wrapper {
-
-
-  text-align: center;
-  padding: 30px;
-  max-width: 350px;
+.wrapper{
+  max-width: 380px;
   width: 100% !important;
-  background-color: #F7F7F7;
   margin: 0 auto;
-  border-radius: 2px;
-  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+h2{
+  font-weight: bold;
+  color:#fdb137;
+}
+
+.error_field{
+  color:#c89137;
+  text-align: left;
+
+}
+
+.tab_item {
+  font-style: italic;
+  width: 50%;
+  height: 50px;
+  border-bottom: 3px solid rgba(0, 0, 0, 0.2);
+  margin-bottom: 0;
+   background-color: #fdb137;
+   /* background-color: #fff; */
+  line-height: 50px;
+  font-size: 16px;
+  text-align: center;
+   color: #fff;
+   /* color:black; */
+  display: block;
+  float: left;
+  text-align: center;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+
+.tab1{
+  border-right: 2px solid rgba(0, 0, 0, 0.2);
+}
+.tab2{
+  border-left: 2px solid rgba(0, 0, 0, 0.2);
+}
+
+.tab_item:hover {
+  opacity: 0.75;
+}
+
+/*ラジオボタンを全て消す*/
+input[name="tab_item"] {
+  display: none;
+}
+
+/*タブ切り替えの中身のスタイル*/
+.tab_content {
+  padding: 40px 40px 0;
+  clear: both;
   overflow: hidden;
-  font-family: roboto;
+  display: none;
 }
+
+
+
+#sign_up_content {
+  font-style: italic;
+  text-align: center;
+  padding: 0 30px 30px 30px;
+  margin: 0 auto;
+
+   /* background-color: rgba(253, 177, 55, 0.3); */
+  /* background-color: #F7F7F7;
+  border-radius: 2px;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3); */
+
+}
+
+#sign_in_content{
+  font-style: italic;
+  text-align: center;
+  padding:0 30px 30px 30px;
+  margin: 0 auto;
+   /* background-color: rgba(253, 177, 55, 0.3); */
+  /*background-color: #F7F7F7;
+  border-radius: 2px;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3); */
+
+}
+
+/*選択されているタブのコンテンツのみを表示*/
+#sign_up:checked ~ #sign_up_content,
+#sign_in:checked ~ #sign_in_content{
+  display: block;
+}
+
+
+.wrapper input:checked + .tab_item {
+   background-color: #fff;
+   /* background-color: rgba(253, 177, 55, 0.5); */
+   /* color: black; */
+   color: #fdb137;
+  border:none;
+}
+
+
 .btn{
-  margin-top: 20px;
+  margin-top: 30px;
+  background-color:#fdb137;
+  color:white;
+  font-size: 16px;
+  font-weight: bold;
+  width:80%;
+  box-shadow:0 7px #c89137;
 }
-.field{
+
+.btn:hover{
+  color:white;
+  position:relative;
+  top:7px;
+  box-shadow: none;
+}
 
 
+input{
+  height: 35px;
+  width: 200px;
+  padding-left: 5px;
+  border: 1px solid #ccc;
+}
+
+input#user_username{
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+input#user_password_confirmation{
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
 }
 .colorgraph {
   height: 7px;

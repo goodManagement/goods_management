@@ -16,4 +16,5 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:subdomain, :username, :email, :password, :password_confirmation) }
     devise_parameter_sanitizer.permit(:sign_in) { |u| u.permit(:subdomain, :username, :email, :password, :remember_me) }
   end
+  
 end
