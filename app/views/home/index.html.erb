@@ -2,12 +2,36 @@
 <html>
   <head>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+
 <!------ Include the above in your HEAD tag ---------->
   </head>
 
   <body>
+    <div class="bar">
+      <div class="dropdown show">
+        <a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+          <!-- <span class="glyphicon glyphicon-cog caret"></span> -->
+          <span class="glyphicon glyphicon-cog"></span>
+          <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu left" role="menu">
+          <li><a role="presentation" href="#">Action</a></li>
+          <li><a role="presentation" href="#">Another action</a></li>
+          <li><a role="presentation" href="#">Something else here</a></li>
+        </ul>
+      </div>
+      <a class="navbar-brand" href="#">
+        <%= image_tag 'sea.jpg', class: 'proImage' %>
+      </a>
+    </div>
+
+
+
+
+
+
     <div id="wrapper">
         <div class="overlay"></div>
 
