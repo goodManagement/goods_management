@@ -1,6 +1,12 @@
+<div class="blank">
+
+</div>
 <div class="wrapper">
   <p class="tab_item_current tab1" >Sign in</p>
   <a class="tab_item tab2" href="/users/sign_up">Sign up</a>
+  <!-- <div class="tab_item tab2">
+    <%= link_to("Sign up","/users/sign_up") %>
+  </div> -->
 
   <div class ="tab_content" id="sign_in_content">
     <h2>Sign in</h2>
@@ -36,6 +42,13 @@
 </div>
 
 <style>
+/* body{
+  background-image: url("/back.jpg");
+  background-size: cover;
+} */
+.blank{
+  height:200px;
+}
 .wrapper{
   max-width: 380px;
   width: 100% !important;
@@ -47,10 +60,11 @@ h2{
   color:#fdb137;
 }
 
-.error_field{
+.alert{
   color:#c89137;
   text-align: left;
-
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
 .check_box{
@@ -104,6 +118,7 @@ h2{
 }
 
 .tab_item:hover {
+  color:#fff;
   opacity: 0.75;
 }
 

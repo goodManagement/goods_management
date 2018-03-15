@@ -1,13 +1,4 @@
 
-
-
-<!-- <div class="alert alert-warning" role="alert">
-  <%= devise_error_messages! %>
-</div> -->
-
-
-<!-- エラーが両方に出る  resource?
-signupでエラー出したらsignupに戻る -->
 <div class="wrapper">
   <a class="tab_item tab1" href="/users/sign_in">Sign in</a>
   <p class="tab_item_current">Sign up</p>
@@ -39,6 +30,7 @@ signupでエラー出したらsignupに戻る -->
       <% end %>
     <!--<%= render "devise/shared/links" %> -->
     </div>
+
 </div>
 
 <style>
@@ -87,8 +79,8 @@ h2{
   /* border-bottom: 3px solid rgba(0, 0, 0, 0.2); */
   margin-bottom: 0;
    /* background-color: #fdb137; */
-     /* background-color: rgba(253, 177, 55, 0.5); */
-   background-color: #fff;
+   background-color: rgba(253, 177, 55, 0.1);
+   /* background-color: #fff; */
   line-height: 50px;
   font-size: 16px;
   text-align: center;
@@ -108,6 +100,7 @@ h2{
 
 
 .tab_item:hover {
+  color:#fff;
   opacity: 0.75;
 }
 
@@ -125,7 +118,7 @@ h2{
   padding: 0 30px 30px 30px;
   margin: 0 auto;
 
-   /* background-color: rgba(253, 177, 55, 0.3); */
+   background-color: rgba(253, 177, 55, 0.1);
   /* background-color: #F7F7F7;
   border-radius: 2px;
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3); */
