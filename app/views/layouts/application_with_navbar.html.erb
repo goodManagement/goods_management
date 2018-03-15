@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>GoodsManagement</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
+    <div id="home-index-wrapper">
+      <div class="setting-button">
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          <span class="glyphicon glyphicon-cog"></span>
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+          <li><a href="#">メニュー1</a></li>
+          <li><a href="#">メニュー2</a></li>
+          <li><a href="#">メニュー3</a></li>
+          <li><a href="#">メニュー4</a></li>
+        </ul>
+      </div>
+
+      <!-- Page Content -->
+      <!-- /#page-content-wrapper -->
+
+      <div id="page-content-wrapper">
+        <button type="button" class="hamburger is-closed" data-toggle="offcanvas">
+          <span class="hamb-top"></span>
+          <span class="hamb-middle"></span>
+          <span class="hamb-bottom"></span>
+        </button>
+      </div>
+
+      <% # main container %>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2">
+            <%= yield %>
+          </div>
+        </div>
+      </div>
+
+      <% # サイドバーの部分 %>
+      <%= render "layouts/sidebar" %>
+    </div>
+
+  </body>
+</html>
