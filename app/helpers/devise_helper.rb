@@ -1,5 +1,5 @@
 module DeviseHelper
-  def devise_error_messages!
+  def devise_error_messages
       return "" if resource.errors.empty?
       html = ""
       # エラーメッセージ用のHTMLを生成
