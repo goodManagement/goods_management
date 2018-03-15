@@ -4,21 +4,11 @@
   top: 20px;
 }
 
-.proImage{
-  position: fixed;
-  top: 12px;
-  right: 45px;
-  width: 45px;
-  height: 45px;
-}
-
-
 body {
     position: relative;
     overflow-x: hidden;
 }
-body,
-html { height: 100%;}
+
 .nav .open > a,
 .nav .open > a:hover,
 .nav .open > a:focus {background-color: blue;}
