@@ -1,43 +1,22 @@
-.bar{
-  background-color: black;
-  width: 100%;
-  height: 70px;
+.setting-button {
   position: fixed;
-  top: 0px;
+  right: 130px;
+  top: 20px;
 }
-//
-
 // .navbar .navbar-toggleable-md .navbar-inverse .bg-inverse {
 //     height: 50px;
 //     position: fixed;
 //     top: 0px;
 // }
 
-// .dropdown-menu{
-//   background-color: red;
-// }
-
-.btn{
-    position: fixed;
-    top: 10px;
-    right: 150px;
-    font-size: 100px;
-    color: white;
-}
-
-.dropdown-menu .left{
-  left: 0;
-  right: auto;
-  &::before {right:auto !important; left:9px;}
-  &::after {right:auto !important; left:10px;}
-}
 
 // .navbar-brand{
 //   position: fixed;
 //   top: 0px;
 //   right: 55px;
-//   color: black;
 // }
+
+
 
 .proImage{
   position: fixed;
@@ -46,52 +25,6 @@
   width: 45px;
   height: 45px;
 }
-
-// header {
-//   padding:10px;
-//   background: skyblue;
-// }
-
-// .drawer .drawer--left .drawer-open{
-//   width: 40%;
-// }
-
-// ul{
-//   height: 100%;
-//   background: red;
-//   overflow: hidden;
-// }
-
-// body header nav ul{
-//   position: fixed;
-//   top: 0px;
-//   left: 0px;
-//   width: auto;
-//   height: 100%;
-//   background: red;
-//   overflow: hidden;
-// }
-
-
-// ul{
-  // list-style: none;
-// }
-
-// .drawer-brand{
-//   font-size: 50px;
-// }
-
-
-/* サイドバー */
-// .sb-slidebar.sb-left {
-//   -webkit-overflow-scrolling: touch;
-// }
-//
-// .sb-left-inner {
-//   width: 100%;
-//   height: 100%;
-//   overflow-y: auto;
-// }
 
 
 body {
