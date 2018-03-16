@@ -1,4 +1,37 @@
 
+.navbar-collapse{
+  background-color: grey;
+    ul{
+      padding-right: 10px;
+    }
+}
+
+
+.right {
+    right: 0 !important;
+    left: 0 !important;
+}
+
+.indexcity1 {
+  z-index: 9999;
+}
+
+@media only screen and (max-width: 767px) {
+    .navbar-collapse{
+      background-color:#ffc107;
+      position: fixed;
+      top: 0;
+      transition:all 0.8s ease-out;
+      height: 100%;
+      width: 100%;
+      left: 700px;
+    }
+    .navbar-inverse .navbar-nav>li>a {
+    color: #000;
+    }
+}
+
+
 
 // home#indexページ
 
@@ -202,13 +235,14 @@
 /*-------------------------------*/
 
 .hamburger {
+  color: #fff;
   position: fixed;
-  top: 20px;
+  top: 12px;
   z-index: 999;
   display: block;
   width: 32px;
   height: 32px;
-  margin-left: 15px;
+  margin-left: 5px;
   background: transparent;
   border: none;
 }
