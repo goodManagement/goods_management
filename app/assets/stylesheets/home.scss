@@ -18,7 +18,7 @@
 
 @media only screen and (max-width: 767px) {
     .navbar-collapse{
-      background-color:#ffc107;
+      background-color:#101010;
       position: fixed;
       top: 0;
       transition:all 0.8s ease-out;
@@ -29,6 +29,10 @@
     .navbar-inverse .navbar-nav>li>a {
     color: #000;
     }
+}
+
+.navbar-collapse {
+  background-color: #101010;
 }
 
 
@@ -276,16 +280,14 @@
 .hamburger.is-open .hamb-top,
 .hamburger.is-open .hamb-middle,
 .hamburger.is-open .hamb-bottom {
+  background-color: white;
   position: absolute;
   left: 0;
   height: 4px;
   width: 100%;
 }
-.hamburger.is-closed .hamb-top,
-.hamburger.is-closed .hamb-middle,
-.hamburger.is-closed .hamb-bottom {
-  background-color: #1a1a1a;
-}
+
+
 .hamburger.is-closed .hamb-top {
   top: 5px;
   -webkit-transition: all .35s ease-in-out;
@@ -307,11 +309,7 @@
   bottom: 0;
   -webkit-transition: all .35s ease-in-out;
 }
-.hamburger.is-open .hamb-top,
-.hamburger.is-open .hamb-middle,
-.hamburger.is-open .hamb-bottom {
-  background-color: #1a1a1a;
-}
+
 .hamburger.is-open .hamb-top,
 .hamburger.is-open .hamb-bottom {
   top: 50%;
