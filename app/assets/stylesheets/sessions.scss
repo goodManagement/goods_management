@@ -3,69 +3,18 @@
   width: 100% !important;
   margin: 0 auto;
 
-  .tab_item_current{
-    font-style: italic;
-    width: 50%;
-    height: 50px;
-    margin-bottom: 0;
-     /* background-color: #fdb137; */
-     /* background-color: #fff; */
-     background-color: rgba(253, 177, 55, 0.1);
-    line-height: 50px;
-    font-size: 16px;
-    text-align: center;
-     /* color: #fff; */
-     color:#fdb137;
-     /* color: black; */
-    display: block;
-    float: left;
-    text-align: center;
-    font-weight: bold;
-    transition: all 0.2s ease;
-  }
 
-  .tab_item {
-    font-style: italic;
-    width: 50%;
-    height: 50px;
-    border-bottom: 3px solid rgba(0, 0, 0, 0.2);
-    margin-bottom: 0;
-     background-color: #fdb137;
-     /* background-color: #fff; */
-    line-height: 50px;
-    font-size: 16px;
-    text-align: center;
-     color: #fff;
-     /* color:black; */
-    display: block;
-    float: left;
-    text-align: center;
-    font-weight: bold;
-    transition: all 0.2s ease;
-
-    &:hover {
-      color:#fff;
-      opacity: 0.75;
-    }
-  }
-
-  /*タブ切り替えの中身のスタイル*/
-  .tab_content {
-    padding: 40px 40px 0;
-    clear: both;
-    overflow: hidden;
-  }
 
   #sign_in_content{
     font-style: italic;
     text-align: center;
     padding:0 30px 30px 30px;
     margin: 0 auto;
-     background-color: rgba(253, 177, 55, 0.1);
+    background-color: rgba(253, 177, 55, 0.1);
   }
 
   .tab2{
-     border-left: 2px solid rgba(0, 0, 0, 0.2);
+    border-left: 2px solid rgba(0, 0, 0, 0.2);
   }
 
   h2{
@@ -74,16 +23,7 @@
   }
 
 
-  .colorgraph {
-    height: 7px;
-    border-top: 0;
-    background: #c4e17f;
-    border-radius: 5px;
-    background-image: -webkit-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
-    background-image: -moz-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
-    background-image: -o-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
-    background-image: linear-gradient(to right, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
-  }
+
 
   .alert{
     color:#c89137;
@@ -117,7 +57,7 @@
     margin-top: 10px
   }
 
-  .btn {
+  .btn{
     margin-top: 30px;
     background-color:#fdb137;
     color:white;
@@ -126,12 +66,14 @@
     width:80%;
     box-shadow:0 7px #c89137;
 
-    &:hover {
+    &:hover{
       color:white;
       position:relative;
       top:7px;
       box-shadow: none;
     }
   }
+
+
 
 }

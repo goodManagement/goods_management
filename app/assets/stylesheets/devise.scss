@@ -1,3 +1,80 @@
 .blank{
   height:200px;
 }
+
+
+.tab_item {
+  font-style: italic;
+  width: 50%;
+  height: 50px;
+  border-bottom: 3px solid rgba(0, 0, 0, 0.2);
+  margin-bottom: 0;
+  background-color: #fdb137;
+  line-height: 50px;
+  font-size: 16px;
+  text-align: center;
+  color: #fff;
+  display: block;
+  float: left;
+  text-align: center;
+  font-weight: bold;
+  transition: all 0.2s ease;
+
+  &:hover {
+    color:#fff;
+    opacity: 0.75;
+  }
+}
+
+
+.tab_item_current{
+  font-style: italic;
+  width: 50%;
+  height: 50px;
+  margin-bottom: 0;
+  background-color: rgba(253, 177, 55, 0.1);
+  line-height: 50px;
+  font-size: 16px;
+  text-align: center;
+  color:#fdb137;
+  display: block;
+  float: left;
+  text-align: center;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+
+/*タブ切り替えの中身のスタイル*/
+.tab_content {
+  padding: 40px 40px 0;
+  clear: both;
+  overflow: hidden;
+}
+
+.colorgraph {
+  height: 7px;
+  border-top: 0;
+  background: #c4e17f;
+  border-radius: 5px;
+  background-image: -webkit-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+  background-image: -moz-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+  background-image: -o-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+  background-image: linear-gradient(to right, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+}
+
+.btn {
+  margin-top: 30px;
+  background-color:#fdb137;
+  color:white;
+  font-size: 16px;
+  font-weight: bold;
+  width:80%;
+  box-shadow:0 7px #c89137;
+
+  &:hover {
+    color:white;
+    position:relative;
+    top:7px;
+    box-shadow: none;
+  }
+}
