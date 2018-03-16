@@ -1,12 +1,7 @@
-<div class="blank">
-
-</div>
-<div class="wrapper">
+<div class="blank"></div>
+<div class="sessions-new-wrapper">
   <p class="tab_item_current tab1" >Sign in</p>
   <a class="tab_item tab2" href="/users/sign_up">Sign up</a>
-  <!-- <div class="tab_item tab2">
-    <%= link_to("Sign up","/users/sign_up") %>
-  </div> -->
 
   <div class ="tab_content" id="sign_in_content">
     <h2>Sign in</h2>
@@ -15,12 +10,10 @@
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
     <div class="field">
-
       <%= f.text_field :username,autocomplete: "off" , placeholder: "User name" %>
     </div>
 
     <div class="field">
-
       <%= f.password_field :password, autocomplete: "off" ,placeholder: "Password"%>
     </div>
 
@@ -29,170 +22,9 @@
         <%= f.check_box :remember_me %>
         <%= f.label :remember_me %>
       </div>
-      <% end -%>
+    <% end -%>
 
-  <!-- <div class="actions">
-    <%= f.submit "Log in" %>
-  </div> -->
     <button class="btn btn-lg" type="submit">Sign in</button>
     <% end %>
-<!-- <%= render "devise/shared/links" %> -->
   </div>
-
 </div>
-
-<style>
-/* body{
-  background-image: url("/back.jpg");
-  background-size: cover;
-} */
-.blank{
-  height:200px;
-}
-.wrapper{
-  max-width: 380px;
-  width: 100% !important;
-  margin: 0 auto;
-}
-
-h2{
-  font-weight: bold;
-  color:#fdb137;
-}
-
-.alert{
-  color:#c89137;
-  text-align: left;
-  padding-top: 0;
-  padding-bottom: 0;
-}
-
-.check_box{
-  margin-top: 10px
-}
-
-
-.tab_item {
-  font-style: italic;
-  width: 50%;
-  height: 50px;
-  border-bottom: 3px solid rgba(0, 0, 0, 0.2);
-  margin-bottom: 0;
-   background-color: #fdb137;
-   /* background-color: #fff; */
-  line-height: 50px;
-  font-size: 16px;
-  text-align: center;
-   color: #fff;
-   /* color:black; */
-  display: block;
-  float: left;
-  text-align: center;
-  font-weight: bold;
-  transition: all 0.2s ease;
-}
-.tab_item_current{
-  font-style: italic;
-  width: 50%;
-  height: 50px;
-  margin-bottom: 0;
-   /* background-color: #fdb137; */
-   /* background-color: #fff; */
-   background-color: rgba(253, 177, 55, 0.1);
-  line-height: 50px;
-  font-size: 16px;
-  text-align: center;
-   /* color: #fff; */
-   color:#fdb137;
-   /* color: black; */
-  display: block;
-  float: left;
-  text-align: center;
-  font-weight: bold;
-  transition: all 0.2s ease;
-
-}
-
-.tab2{
-   border-left: 2px solid rgba(0, 0, 0, 0.2);
-}
-
-.tab_item:hover {
-  color:#fff;
-  opacity: 0.75;
-}
-
-
-/*タブ切り替えの中身のスタイル*/
-.tab_content {
-  padding: 40px 40px 0;
-  clear: both;
-  overflow: hidden;
-
-}
-
-
-#sign_in_content{
-  font-style: italic;
-  text-align: center;
-  padding:0 30px 30px 30px;
-  margin: 0 auto;
-   background-color: rgba(253, 177, 55, 0.1);
-  /*background-color: #F7F7F7;
-  border-radius: 2px;
-  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3); */
-
-}
-
-
-.btn{
-  margin-top: 30px;
-  background-color:#fdb137;
-  color:white;
-  font-size: 16px;
-  font-weight: bold;
-  width:80%;
-  box-shadow:0 7px #c89137;
-}
-
-.btn:hover{
-  color:white;
-  position:relative;
-  top:7px;
-  box-shadow: none;
-}
-
-
-
-input#user_username{
-  height: 35px;
-  width: 200px;
-  padding-left: 8px;
-  border: 1px solid #ccc;
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
-
-}
-
-input#user_password{
-  height: 35px;
-  width: 200px;
-  padding-left: 8px;
-  border: 1px solid #ccc;
-  border-bottom-left-radius: 3px;
-  border-bottom-right-radius: 3px;
-}
-
-.colorgraph {
-  height: 7px;
-  border-top: 0;
-  background: #c4e17f;
-  border-radius: 5px;
-  background-image: -webkit-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
-  background-image: -moz-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
-  background-image: -o-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
-  background-image: linear-gradient(to right, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
-}
-
-
-</style>
