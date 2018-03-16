@@ -1,4 +1,41 @@
 
+.navbar-collapse{
+  background-color: grey;
+    ul{
+      padding-right: 10px;
+    }
+}
+
+
+.right {
+    right: 0 !important;
+    left: 0 !important;
+}
+
+.indexcity1 {
+  z-index: 9999;
+}
+
+@media only screen and (max-width: 767px) {
+    .navbar-collapse{
+      background-color:#101010;
+      position: fixed;
+      top: 0;
+      transition:all 0.8s ease-out;
+      height: 100%;
+      width: 100%;
+      left: 700px;
+    }
+    .navbar-inverse .navbar-nav>li>a {
+    color: #000;
+    }
+}
+
+.navbar-collapse {
+  background-color: #101010;
+}
+
+
 
 // home#indexページ
 
@@ -202,13 +239,14 @@
 /*-------------------------------*/
 
 .hamburger {
+  color: #fff;
   position: fixed;
-  top: 20px;
+  top: 12px;
   z-index: 999;
   display: block;
   width: 32px;
   height: 32px;
-  margin-left: 15px;
+  margin-left: 5px;
   background: transparent;
   border: none;
 }
@@ -242,16 +280,14 @@
 .hamburger.is-open .hamb-top,
 .hamburger.is-open .hamb-middle,
 .hamburger.is-open .hamb-bottom {
+  background-color: white;
   position: absolute;
   left: 0;
   height: 4px;
   width: 100%;
 }
-.hamburger.is-closed .hamb-top,
-.hamburger.is-closed .hamb-middle,
-.hamburger.is-closed .hamb-bottom {
-  background-color: #1a1a1a;
-}
+
+
 .hamburger.is-closed .hamb-top {
   top: 5px;
   -webkit-transition: all .35s ease-in-out;
@@ -273,11 +309,7 @@
   bottom: 0;
   -webkit-transition: all .35s ease-in-out;
 }
-.hamburger.is-open .hamb-top,
-.hamburger.is-open .hamb-middle,
-.hamburger.is-open .hamb-bottom {
-  background-color: #1a1a1a;
-}
+
 .hamburger.is-open .hamb-top,
 .hamburger.is-open .hamb-bottom {
   top: 50%;
