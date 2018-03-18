@@ -5,3 +5,32 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+user_names = {"pokotsun" => true, "abetaku" => true, "nomy" => true,
+  "yamako" => false, "koniatsu" => false}
+
+
+
+
+user_names.each do |name, val|
+  user = User.new(
+    :username => name,
+    :is_admin => val,
+    :email => "#{name}@a.com",
+    :password => "abcdef")
+  user.save!
+
+  5.times do |i|
+    item = Item.create(
+      name: "#{user.username}_item#{i}",
+      serial_number: i+100,
+      kind: i % 3)
+    if(i % 5 == 0)
+      Lending.create(
+        user_id: user.id,
+        item_id: item.id,
+        dead_line: Date.today
+      )
+    end
+  end
+
+end
