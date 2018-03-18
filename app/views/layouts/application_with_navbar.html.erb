@@ -17,57 +17,15 @@
     <% # main container %>
     <div class="container">
       <div class="row">
-        <div class="col-lg-8 col-lg-offset-2">
           <%= yield %>
-        </div>
       </div>
     </div>
 
-    <% # サイドバーの部分 %>
+    <% # sidebar %>
     <%= render "layouts/sidebar" %>
-    <div class="navbar navbar-default navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="#">
-          <div id="page-content-wrapper">
-            <button type="button" class="hamburger is-closed" data-toggle="offcanvas">
-              <span class="hamb-top"></span>
-              <span class="hamb-middle"></span>
-              <span class="hamb-bottom"></span>
-            </button>
-          </div>
-        </a>
-        <button type="button" class="navbar-toggle">
-          <span class="sr-only">Toggle Navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-      </div>
-      <div class="navbar-collapse">
-        <ul class="nav navbar-nav navbar-right">
-          <li class="nav-item dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              setting
-              <span class="caret"></span>
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <li><a class="dropdown-item" href="#">物品追加</a></li>
-              <li><a class="dropdown-item" href="#">物品削除</a></li>
-            </ul>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="dropdown-toggle" href="#" data-toggle="dropdown">
-              My Page
-              <span class="caret"></span>
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <li><a class="dropdown-item" href="#">ヘルプ</a></li>
-              <li><a class="dropdown-item" href="#">設定とプライバシー</a></li>
-              <li><a class="dropdown-item" href="#">サインアウト</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-    </div>
+
+    <% #navbar %>
+    <%= render "layouts/navbar" %>
+
   </body>
   </html>
