@@ -4,10 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
   authentication_keys: [:username]
-  # 認証で使うキーを指定
-  # devise :database_authenticatable, :trackable, :validatable,
-  #   authentication_keys: [:username]
-
+  
   has_many :lendings
 
   # 今現在借りている(is_lent: trueである)lendingを返す
