@@ -11,14 +11,15 @@ class User < ApplicationRecord
   has_many :lendings
 
   # 今現在借りている(is_lent: trueである)lendingを返す
-  def current_lending
-    lendings.order(:updated_at).select { |lending| lending.is_lent == true }.first
+  def current_lendings
+    lendings.order(:updated_at).select { |lending| lending.is_lent == true }
   end
 
-  # ユーザー名で検索
+  # ユーザー名でログインするようにオーバーライド
   def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup
     if username = conditions.delete(:username)
+      # 認証の条件式を変更
       where(conditions).where(username: username).first
     else
       where(conditions).first
