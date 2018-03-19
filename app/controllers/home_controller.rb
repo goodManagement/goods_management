@@ -5,7 +5,7 @@ class HomeController < ApplicationController
   def index
     @lendings = []
     30.times do |i|
-      lending = Lending.new(user_id: 100+i, item_id: 200+i, dead_line:Time.now)
+      lending = Lending.new(user_id: i, item_id: i, dead_line:Time.now)
 
       @lendings.push(lending)
 
@@ -17,9 +17,8 @@ class HomeController < ApplicationController
 
 
   def back
-    lendings =Lending.find_by(item_id: params[:id])
-    lendings.is_lent=false
-    lendings.save
+    item =Item.find_by(serial_number_: params[:id])
+    item.return
     redirect_to("/home/index")
   end
 

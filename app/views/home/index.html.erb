@@ -1,50 +1,57 @@
 <!-- bootstrap適用できない -->
 <!-- 行番号の割り振り -->
 <!-- 行の中身の高さが揃わない -->
-
-<table class="table">
+<table class="table table-striped">
   <thead class="thead-dark">
     <tr>
       <th scope="col">#</th>
-      <th scope="col">Item Id</th>
-      <th scope="col">Item Name</th>
+      <th scope="col">Name</th>
+      <th scope="col">Serial Number</th>
       <th scope="col">DeadLine</th>
       <th scope="col">Return</th>
+      <th scope="col">Renew</th>
     </tr>
   </thead>
   <tbody>
+    <h1><%= current_user.username %>の借りてるやつ一覧</h1>
 
-    <% @lendings.each do |lending| %>
-    <% if lending.is_lent %>
+    <% @lendings.select{|lending| lending.item.present? }.each_with_index do |lending,i| %>
+
     <% if lending.dead_line<=Time.current%>
     <tr>
-      <th class="hurry font" scope="row"><%=  %></th>
+      <th class="hurry font" scope="row"><%= i+1 %></th>
+      <td class="hurry font"><%=%></td>
       <td class="hurry font"><%=lending.item_id%></td>
-      <td class="hurry font"></td>
       <td class="hurry font"><%=lending.dead_line%></td>
       <td>
-        <%= link_to("Return","/home/back",{method: :post, id: lending.item_id,:class =>"hurry button font"}) %>
-        <!-- <%= link_to("/home/back",{method: :post, id: lending.item_id}) do %>
-          <button type="button"  class="btn btn-dark">Return</button>
-        <% end %> -->
+        <%= link_to("Return","/home/back",{method: :post, id: lending.item.serial_number, :class =>"font btn btn-success"}) %>
+
+      </td>
+      <td>
+        <%= link_to("Renew","/home/renew",{method: :post, id: lending.item.serial_number, :class =>"font btn btn-primary"}) %>
+
       </td>
     </tr>
     <%else %>
     <tr>
-      <th class="font" scope="row"><%=  %></th>
+      <th class="font" scope="row"><%= i+1 %></th>
       <td class="font"><%=lending.item_id%></td>
       <td class="font"></td>
       <td class="font"><%=lending.dead_line%></td>
       <td>
-        <%= link_to("Return","/home/back",{method: :post, id: lending.item_id,:class =>"font"}) %>
-        <!-- <%= link_to("/home/back",{method: :post, id: lending.item_id}) do %>
-          <button type="button"  class="btn btn-dark">Return</button>
-        <% end %> -->
+        <%= link_to("Return","/home/back",{method: :post, id: lending.item.serial_number,:class =>"font btn btn-primary"}) %>
+
+      </td>
+      <td>
+        <%= link_to("Renew","/home/renew",{method: :post, id: lending.item.serial_number,:class =>"font btn btn-primary"}) %>
+
       </td>
     </tr>
     <% end %>
-    <% end %>
+
   <% end %>
 
   </tbody>
+
+
 </table>
