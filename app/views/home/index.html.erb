@@ -1,1 +1,50 @@
-<p>私はhome#indexです</p>
+<!-- bootstrap適用できない -->
+<!-- 行番号の割り振り -->
+<!-- 行の中身の高さが揃わない -->
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Item Id</th>
+      <th scope="col">Item Name</th>
+      <th scope="col">DeadLine</th>
+      <th scope="col">Return</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <% @lendings.each do |lending| %>
+    <% if lending.is_lent %>
+    <% if lending.dead_line<=Time.current%>
+    <tr>
+      <th class="hurry font" scope="row"><%=  %></th>
+      <td class="hurry font"><%=lending.item_id%></td>
+      <td class="hurry font"></td>
+      <td class="hurry font"><%=lending.dead_line%></td>
+      <td>
+        <%= link_to("Return","/home/back",{method: :post, id: lending.item_id,:class =>"hurry button font"}) %>
+        <!-- <%= link_to("/home/back",{method: :post, id: lending.item_id}) do %>
+          <button type="button"  class="btn btn-dark">Return</button>
+        <% end %> -->
+      </td>
+    </tr>
+    <%else %>
+    <tr>
+      <th class="font" scope="row"><%=  %></th>
+      <td class="font"><%=lending.item_id%></td>
+      <td class="font"></td>
+      <td class="font"><%=lending.dead_line%></td>
+      <td>
+        <%= link_to("Return","/home/back",{method: :post, id: lending.item_id,:class =>"font"}) %>
+        <!-- <%= link_to("/home/back",{method: :post, id: lending.item_id}) do %>
+          <button type="button"  class="btn btn-dark">Return</button>
+        <% end %> -->
+      </td>
+    </tr>
+    <% end %>
+    <% end %>
+  <% end %>
+
+  </tbody>
+</table>
