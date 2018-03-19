@@ -31,7 +31,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 
 # bootstrap
-gem 'bootstrap', '~> 4.0.0.beta2.1'
+gem 'bootstrap-sass'
 gem 'jquery-rails'
 
 # devise導入
