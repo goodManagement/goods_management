@@ -13,41 +13,22 @@
     </tr>
   </thead>
   <tbody>
-    <h1><%= current_user.username %>の借りてるやつ一覧</h1>
+    <h1><%= current_user.username %>の借りてるやつ</h1>
 
     <% @lendings.select{|lending| lending.item.present? }.each_with_index do |lending,i| %>
 
-    <% if lending.dead_line<=Time.current%>
-    <tr>
-      <th class="hurry font" scope="row"><%= i+1 %></th>
-      <td class="hurry font"><%=%></td>
-      <td class="hurry font"><%=lending.item_id%></td>
-      <td class="hurry font"><%=lending.dead_line%></td>
+    <tr class="<%= add_hurry_class(lending) %> font">
+      <th scope="row"><%= i+1 %></th>
+      <td><%=%></td>
+      <td><%=lending.item_id%></td>
+      <td><%=lending.dead_line%></td>
       <td>
         <%= link_to("Return","/home/back",{method: :post, id: lending.item.serial_number, :class =>"font btn btn-success"}) %>
-
       </td>
       <td>
         <%= link_to("Renew","/home/renew",{method: :post, id: lending.item.serial_number, :class =>"font btn btn-primary"}) %>
-
       </td>
     </tr>
-    <%else %>
-    <tr>
-      <th class="font" scope="row"><%= i+1 %></th>
-      <td class="font"><%=lending.item_id%></td>
-      <td class="font"></td>
-      <td class="font"><%=lending.dead_line%></td>
-      <td>
-        <%= link_to("Return","/home/back",{method: :post, id: lending.item.serial_number,:class =>"font btn btn-primary"}) %>
-
-      </td>
-      <td>
-        <%= link_to("Renew","/home/renew",{method: :post, id: lending.item.serial_number,:class =>"font btn btn-primary"}) %>
-
-      </td>
-    </tr>
-    <% end %>
 
   <% end %>
 
