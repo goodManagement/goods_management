@@ -1,2 +1,46 @@
-<h1>Items#index</h1>
-<p>Find me in app/views/items/index.html.erb</p>
+
+
+<div class="row">
+        <div class="col-md-6">
+    		<h2>Custom search field</h2>
+            <div id="custom-search-input">
+                <div class="input-group col-md-12">
+                    <input type="text" class="form-control input-lg" placeholder="Buscar" />
+                    <span class="input-group-btn">
+                        <button class="btn btn-info btn-lg" type="button">
+                            <i class="glyphicon glyphicon-search"></i>
+                        </button>
+                    </span>
+                </div>
+            </div>
+        </div>
+	</div>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">name</th>
+      <th scope="col">serial_number</th>
+      <th scope="col">kind</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @items.each_with_index do |item,i| %>
+      <tr>
+        <th scope="row">i</th>
+        <td><%= item.name %></td>
+        <td><%= item.serial_number %></td>
+        <td><%= item.kind %></td>
+        <td><span class="badge badge-red">貸出中</span></td>
+        <td><a href="" class="btn btn-primary">貸出する</a></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<style>
+.badge-red {
+  background-color: red;
+}
+</style>
