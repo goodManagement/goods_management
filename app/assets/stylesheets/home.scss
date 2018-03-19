@@ -1,24 +1,45 @@
 
 // home#indexページ
-.hurry{
-  th, td {
-  color:red;
-  }
-}
+h1{
+  color: #505050;/*文字色*/
+  padding: 0.5em;/*文字周りの余白*/
+  display: inline-block;/*おまじない*/
+  line-height: 1.3;/*行高*/
+  background: #dbebf8;/*背景色*/
+  vertical-align: middle;/*上下中央*/
+  border-radius: 25px 0px 0px 25px;/*左側の角を丸く*/
 
-.font {
-  th, td{
-  font-size: 18px;
+  &:before {
+    content: '●';
+    color: white;
+    margin-right: 8px;
   }
 }
 
 .table{
   margin-top: 50px;
   .thead-dark{
-
     font-size: 18px;
     th{
         height:70px;
       }
+    }
+    tbody {
+
+
+      .hurry{
+        th, td {
+        color:red;
+        }
+      }
+
+      .font {
+        th, td{
+        font-size: 18px;
+        }
+      }
+
+
+
     }
   }

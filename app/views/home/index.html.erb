@@ -1,6 +1,9 @@
 <!-- bootstrap適用できない -->
 <!-- 行番号の割り振り -->
 <!-- 行の中身の高さが揃わない -->
+<h1><%= current_user.username %>の借りてるやつ</h1>
+
+
 <table class="table table-striped">
   <thead class="thead-dark">
     <tr>
@@ -13,7 +16,6 @@
     </tr>
   </thead>
   <tbody>
-    <h1><%= current_user.username %>の借りてるやつ</h1>
 
     <% @lendings.select{|lending| lending.item.present? }.each_with_index do |lending,i| %>
 
