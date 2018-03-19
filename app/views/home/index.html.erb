@@ -1,8 +1,5 @@
-<!-- bootstrap適用できない -->
-<!-- 行番号の割り振り -->
-<!-- 行の中身の高さが揃わない -->
-<h1><%= current_user.username %>の借りてるやつ</h1>
 
+<h1><%= current_user.username %>の借りてるやつ</h1>
 
 <table class="table table-striped">
   <thead class="thead-dark">
@@ -21,8 +18,8 @@
 
     <tr class="<%= add_hurry_class(lending) %> font">
       <th scope="row"><%= i+1 %></th>
-      <td><%=%></td>
-      <td><%=lending.item_id%></td>
+      <td><%=lending.item.name%></td>
+      <td><%=lending.item.serial_number%></td>
       <td><%=lending.dead_line%></td>
       <td>
         <%= link_to("Return","/home/back",{method: :post, id: lending.item.serial_number, :class =>"font btn btn-success"}) %>

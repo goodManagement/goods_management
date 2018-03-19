@@ -9,15 +9,15 @@
 </head>
 
 <body>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
 
   <div id="application-with-navbar-wrapper">
+    <div style="margin-top:50px;"></div>
+    <%= show_flash %>
 
     <% # main container %>
     <div class="container">
       <div class="row">
-          <%= yield %>
+        <%= yield %>
       </div>
     </div>
 

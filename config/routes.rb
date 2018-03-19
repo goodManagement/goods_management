@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     root to: 'devise/registrations#new'
   end
 
-  post "home/back" => "home#back"
-
+  post "home/back" => "home#return_item"
+ post "home/renew" => "home#renew_item"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

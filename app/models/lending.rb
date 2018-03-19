@@ -7,9 +7,12 @@ class Lending < ApplicationRecord
      created_at < updated_at
   end
 
-  def return
-    is_lent=false
+  def return_item
+    update(is_lent=false)
   end
 
+  def renew_item
+    
+  end
 
 end

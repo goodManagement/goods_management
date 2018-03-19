@@ -10,16 +10,18 @@ class HomeController < ApplicationController
       @lendings.push(lending)
 
     end
-
-
     render :index, layout: "application_with_navbar"
   end
 
-
   def back
-    item =Item.find_by(serial_number_: params[:id])
-    item.return
+    item =Item.find_by(serial_number: params[:id])
+    item.return_item
     redirect_to("/home/index")
+  end
+
+  def renew
+    item =Item.find_by(serial_number: params[:id])
+
   end
 
 end
