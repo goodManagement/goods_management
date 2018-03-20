@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   get 'home/index'
+  resources :lendings
 
   devise_scope :user do
     root to: 'devise/registrations#new'

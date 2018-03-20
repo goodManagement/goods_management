@@ -25,7 +25,8 @@
       <td><%=lending.item_id%></td>
       <td><%=lending.dead_line%></td>
       <td>
-        <%= link_to("Return","/home/back",{method: :post, id: lending.item.serial_number, :class =>"font btn btn-success"}) %>
+        <!-- <%= link_to("Return","/home/back",{method: :post, id: lending.item.serial_number, :class =>"font btn btn-success"}) %> -->
+        <button type="button" class="btn btn-default" id="staticModalButton">貸出</button>
       </td>
       <td>
         <%= link_to("Renew","/home/renew",{method: :post, id: lending.item.serial_number, :class =>"font btn btn-primary"}) %>
@@ -36,5 +37,63 @@
 
   </tbody>
 
-
 </table>
+
+<!-- モーダルダイアログ -->
+  <div class="modal" id="staticModal" tabindex="-1" role="dialog" aria-labelledby="staticModalLabel" aria-hidden="true" data-show="true" data-keyboard="false" data-backdrop="static">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">
+            <span aria-hidden="true">&#215;</span><span class="sr-only">閉じる</span>
+          </button>
+          <h4 class="modal-title">Static Modal タイトル</h4>
+        </div><!-- /modal-header -->
+        <div class="modal-body">
+            <div class="controls">
+              <% @lending = Lending.new unless @lending %>
+              <%= form_for(@lending) do |f| %>
+              
+              <% end %>
+            </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+          <button type="button" class="btn btn-primary">変更を保存</button>
+        </div>
+      </div> <!-- /.modal-content -->
+    </div> <!-- /.modal-dialog -->
+  </div> <!-- /.modal -->
+
+  <script src="https://code.jquery.com/jquery-3.1.0.slim.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script>
+  $(function() {
+    // JavaScript で表示
+    $('#staticModalButton').on('click', function() {
+      $('#staticModal').modal();
+    });
+
+
+    // ダイアログ表示前にJavaScriptで操作する
+    $('#staticModal').on('show.bs.modal', function(event) {
+      var button = $(event.relatedTarget);
+      var recipient = button.data('whatever');
+      var modal = $(this);
+      modal.find('.modal-body .recipient').text(recipient);
+      //modal.find('.modal-body input').val(recipient);
+    });
+
+
+
+    // ダイアログ表示直後にフォーカスを設定する
+    $('#staticModal').on('shown.bs.modal', function(event) {
+      $(this).find('.modal-footer .btn-default').focus();
+    });
+    $('#staticModal').on('click', '.modal-footer .btn-primary', function() {
+      $('#staticModal').modal('hide');
+      alert('変更を保存をクリックしました。');
+    });
+  });
+  </script>
