@@ -1,48 +1,42 @@
 // registrations#new
 .registrations-new-wrapper{
-  max-width: 380px;
-  width: 100% !important;
-  margin: 0 auto;
-
-
-  h2{
-    font-weight: bold;
-    color:#fdb137;
-  }
-
-  .error_field{
-    color:#c89137;
-    text-align: left;
-  }
-
-  .tab1{
-    border-right: 2px solid rgba(0, 0, 0, 0.2);
-  }
-
-  #sign_up_content {
-    font-style: italic;
-    text-align: center;
-    padding: 0 30px 30px 30px;
-    margin: 0 auto;
-    background-color: rgba(253, 177, 55, 0.1);
-  }
-
-
-  input{
-    height: 35px;
-    width: 200px;
-    padding-left: 8px;
-    border: 1px solid #ccc;
-
-    #user_username {
-      border-top-left-radius: 3px;
-      border-top-right-radius: 3px;
-    }
-
-    #user_password_confirmation{
-      border-bottom-left-radius: 3px;
-      border-bottom-right-radius: 3px;
+  background-image: url("/background.jpg");
+  background-size: cover;
+  height: 100vh;
+  width:100vw;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  .signup-main-wrapper {
+  .title {
+    h1 {
+      color:white;
+      font-size: 6vh;
+      font-style: italic;
     }
   }
+
+ .signup-sub-wrapper {
+   .signup-menu-wrapper {
+     margin: 0 20% 0 20%;
+     h2{
+       font-weight: bold;
+       color:#fdb137;
+     }
+
+     .error_field{
+       color:#c89137;
+       text-align: left;
+     }
+
+     input{
+       height: 4vh;
+       width: 13vw;
+       padding-left: 8px;
+       border: 1px solid #ccc;
+     }
+   }
+  }
+ }
 }
 // end of regstrations#new
