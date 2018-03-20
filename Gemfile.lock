@@ -45,10 +45,11 @@ GEM
       execjs
     bcrypt (3.1.11)
     bindex (0.5.0)
-    bootstrap-datetimepicker-rails (0.0.11)
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
+    bootstrap3-datetimepicker-rails (4.17.47)
+      momentjs-rails (>= 2.8.1)
     builder (3.2.3)
     byebug (10.0.0)
     capybara (2.18.0)
@@ -197,8 +198,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bootstrap-datetimepicker-rails
   bootstrap-sass
+  bootstrap3-datetimepicker-rails
   byebug
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
@@ -206,7 +207,7 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   jquery-rails
   listen (>= 3.0.5, < 3.2)
-  momentjs-rails (>= 2.9.0)
+  momentjs-rails
   puma (~> 3.7)
   rails (~> 5.1.5)
   sass-rails (~> 5.0)
