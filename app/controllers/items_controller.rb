@@ -7,4 +7,8 @@ class ItemsController < ApplicationController
     end
     render :index, layout: "application_with_navbar"
   end
+
+  def new
+    render :new, layout: "application_with_navbar"
+  end
 end
