@@ -12,7 +12,8 @@ class Lending < ApplicationRecord
   end
 
   def renew_item
-    
+    # dead_line=
+    updated_at=Time.current
   end
 
 end

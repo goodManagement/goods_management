@@ -21,7 +21,10 @@ class HomeController < ApplicationController
 
   def renew
     item =Item.find_by(serial_number: params[:id])
-
+    if item.lending.is_renewed?
+      item.lending.renew_item
+    end
+    redirect_to("/home/index")
   end
 
 end
