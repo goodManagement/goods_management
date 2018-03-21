@@ -3,11 +3,11 @@ module ApplicationHelper
     messages = ""
     flash.each do |message_type, message|
         if message_type == "notice"
-          messages += "<div class='alert alert-success'>#{message}</div>"
+          message.split("¥n").each{ |msg| messages += "<div class='alert alert-success' style='margin-bottom:0px'>#{msg}</div>" }
         elsif message_type == "alert"
-          messages += "<div class='alert alert-danger'>#{message}</div>"
+          message.split("¥n").each { |msg| messages += "<div class='alert alert-danger' style='margin-bottom:0px'>#{msg}</div>" }
         else
-          messages += "<div class='alert alert-#{message_type}'>#{message}</div>"
+          message.split("¥n").each{ |msg| messages += "<div class='alert alert-#{message_type}' style='margin-bottom:0px'>#{msg}</div>" }
         end
     end
     return messages.html_safe

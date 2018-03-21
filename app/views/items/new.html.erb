@@ -1,46 +1,28 @@
+<div class="form_sub_wrapper col-md-offset-2 col-md-8 ">
+  <div class="form_main_wrapper">
+<h1 class="col-md-offset-1 col-md-9">New Items Create</h1>
 
-<h2>new items create</h2>
-
-<form class="col-md-offset-0">
-  <div class="form-group row">
-    <label for="inputEmail3" class="col-sm-2 col-form-label">Item Name</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" id="inputEmail3" placeholder="Item Name">
-    </div>
+<%= form_for @item do |f| %>
+  <div class="form-group">
+    <h3 class="col-md-6 col-md-offset-1">Item Name</h3>
+    <%= f.text_field :name, :class=>"form-control col-md-offset-1", :placeholder=>"Item Name" %>
   </div>
-  <div class="form-group row">
-    <label for="inputPassword3" class="col-sm-2 col-form-label">Serial Number</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" id="inputPassword3" placeholder="Serial Number">
-    </div>
+  <div class="form-group">
+    <h3 class="col-md-6 col-md-offset-1">Serial Number</h3>
+    <%= f.text_field :serial_number, :class=>"form-control col-md-offset-1", :placeholder=>"Serial Number" %>
   </div>
-  <div class="form-group row">
-    <label for="inputPassword3" class="col-sm-2 col-form-label">Kind</label>
-    <div class="col-sm-4">
-      <select class="form-control">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-        <option>anything</option>
-      </select>
-    </div>
+  <div class="form-group">
+    <h3 class="col-md-6 col-md-offset-1">Kind</h3>
+    <%= f.select :kind, [["本", 1], ["PC", 2],["PC周辺機器",3],["スマホ・タブレット",4],["ウェアラブル端末",5]],{}, :class=>"form-control col-md-offset-1" %>
   </div>
-  <div class="form-group row">
-    <div class="col-sm-2">Checkbox</div>
-    <div class="col-sm-10">
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="gridCheck1">
-        <label class="form-check-label" for="gridCheck1">
-          Example checkbox
+      <div class="form-check col-md-offset-1">
+       <label>
+        <%= f.check_box(:judge, checked:false, class: "form-check-input") %>Check here if you fill in the form
         </label>
       </div>
-    </div>
+  <div class="text-center">
+      <%= f.submit "Create", id:"btn", class: "btn disabled btn-lg",  disabled: true%>
   </div>
-  <div class="form-group row text-center">
-    <div class="col-sm-12">
-      <button type="submit" class="btn btn-primary btn-lg">Create</button>
-    </div>
-  </div>
-</form>
+<% end %>
+</div>
+</div>

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :items
-
+  
   devise_for :users
   get 'home/index'
 
@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   end
 
   post "home/back" => "home#back"
- post "home/renew" => "home#renew"
+  post "home/renew" => "home#renew"
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

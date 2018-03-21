@@ -1,7 +1,9 @@
 class Item < ApplicationRecord
+  validates :name, presence: true
+  validates :serial_number, presence: true, uniqueness: true
   has_many :lendings
 
-  scope :search_with_id, -> (id) { where(id: id).first} 
+  scope :search_with_id, -> (id) { where(id: id).first}
 
   # 今現在借りている(is_lent: trueである)lendingを返す
   def current_lendings
