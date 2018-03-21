@@ -1,43 +1,35 @@
 .devise-wrapper {
   .tab_item_link {
     font-style: italic;
-    width: 50%;
-    height: 50px;
-    border-bottom: 3px solid rgba(0, 0, 0, 0.2);
-    margin-bottom: 0;
-    background-color: #fdb137;
-    line-height: 50px;
+    font-weight: bold;
+    height: 5vh;
+    margin-top: 1vh;
+    background-color: rgba(8,138,41,0.8);
+    border-radius: 10px 10px 0 0;
+    line-height:5vh;
     font-size: 16px;
     text-align: center;
     color: #fff;
-    display: block;
     float: left;
-    text-align: center;
-    font-weight: bold;
-    transition: all 0.2s ease;
-
     &:hover {
-      color:#fff;
-      opacity: 0.75;
+      position: relative;
+      height: 6vh;
+      line-height: 5vh;
+      margin-top: 0;
     }
   }
 
   .tab_item_current{
     font-style: italic;
-    width: 50%;
-    height: 50px;
+    font-weight: bold;
+    height: 6vh;
     margin-bottom: 0;
-    background-color: rgba(253, 177, 55, 0.1);
-    line-height: 50px;
+    background-color: rgba(0,0,0,0.6);
+    color:white;
+    line-height: 6vh;
     font-size: 16px;
     text-align: center;
-    color:#fdb137;
-    display: block;
     float: left;
-    text-align: center;
-    font-weight: bold;
-    transition: all 0.2s ease;
-
   }
 
   /*タブ切り替えの中身のスタイル*/
@@ -47,16 +39,14 @@
     overflow: hidden;
     font-style: italic;
     text-align: center;
-    background-color: rgba(253, 177, 55, 0.1);
+    background-color: rgba(0,0,0,0.6);
   }
 
   .btn {
     margin-top: 30px;
-    background-color:#fdb137;
+    background-color:#088A29;
     color:white;
     font-size: 16px;
     font-weight: bold;
-    width:80%;
-    
   }
 }
