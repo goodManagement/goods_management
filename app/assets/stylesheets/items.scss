@@ -1,16 +1,33 @@
 
-.input-group{
+.input-group {
   margin-top: 30px;
   margin-bottom: 20px;
-}
 
+
+
+
+}
 
 .badge.badge-red {
   background-color: red;
 }
 
 
-.col-md-offset-0{
-  margin-top: 50px;
+.items-index-wrapper {
 
+  table tbody tr td {
+    display: table-cell;
+    vertical-align: middle
+  }
+}
+
+// th{
+//   display: table-cell;
+//   vertical-align: middle;
+// }
+
+
+
+.col-md-offset-0 {
+  margin-top: 50px;
 }

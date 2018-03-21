@@ -1,6 +1,4 @@
-
-
-
+<div class="items-index-wrapper">
 <div class="row　text-center">
     <div class="col-xs-8 col-xs-offset-2">
       <%= form_tag items_search_path do %>
@@ -33,27 +31,30 @@
 </div>
 
 
-
-
-<table class="table table-striped">
-  <thead>
+<table class="table table-stripe">
+  <thead >
     <tr>
       <th scope="col">#</th>
       <th scope="col">name</th>
       <th scope="col">serial_number</th>
       <th scope="col">kind</th>
+      <th scope="col">貸出状態</th>
     </tr>
   </thead>
   <tbody>
     <% @items.each_with_index do |item,i| %>
       <tr>
-        <th scope="row">i</th>
+        <th scope="row" style="display: table-cell; vertical-align: middle">i</th>
         <td><%= item.name %></td>
         <td><%= item.serial_number %></td>
         <td><%= item.kind %></td>
+        <% if item.current_lending.present? %>
         <td><span class="badge badge-red">貸出中</span></td>
-        <td><a href="" class="btn btn-primary">貸出する</a></td>
+        <% else %>
+        <td><a href="" class="btn btn-primary">貸出可</a></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
+</div>
