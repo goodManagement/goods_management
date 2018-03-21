@@ -1,9 +1,15 @@
 module DeviseHelper
   def devise_error_messages!
-      return "" if resource.errors.empty?
+      return "" if resource.errors.empty? and flash.empty?
       html = ""
+
       # エラーメッセージ用のHTMLを生成
-      messages = resource.errors.full_messages.each do |msg|
+      messages = resource.errors.full_messages
+      if flash.present?
+        flash.each { |type, msg|  messages.push(msg) }
+      end
+
+      messages.each do |msg|
         html += <<-EOF
           <div class="error_field" role="alert">
             <p class="error_msg">・#{msg}</p>
