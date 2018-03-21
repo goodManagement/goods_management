@@ -1,34 +1,44 @@
+// ログインの本体部分
+
+//文字のスタイル、大きさ、形
+@mixin  font{
+  font-style: italic;
+  font-weight: bold;
+  font-size: 16px;
+}
+//背景色と文字色
+@mixin color($font_color, $background_color){
+    color:$font_color;
+    background-color:$background_color;
+}
+
+//高さと行間合わせ
+@mixin height($height,$line-height){
+  height:$height;
+  line-height: $line-height;
+  text-align: center;
+}
+
 .devise-wrapper {
   .tab_item_link {
-    font-style: italic;
-    font-weight: bold;
-    height: 5vh;
+    @include font;
+    @include color(#fff,rgba(8,138,41,0.8));
+    @include height(5vh,5vh);
     margin-top: 1vh;
-    background-color: rgba(8,138,41,0.8);
     border-radius: 10px 10px 0 0;
-    line-height:5vh;
-    font-size: 16px;
-    text-align: center;
-    color: #fff;
     float: left;
     &:hover {
+      @include height(6vh,5vh);
       position: relative;
-      height: 6vh;
-      line-height: 5vh;
       margin-top: 0;
     }
   }
 
   .tab_item_current{
-    font-style: italic;
-    font-weight: bold;
-    height: 6vh;
+    @include font;
+    @include color(white,rgba(0,0,0,0.6));
+    @include height(6vh,6vh);
     margin-bottom: 0;
-    background-color: rgba(0,0,0,0.6);
-    color:white;
-    line-height: 6vh;
-    font-size: 16px;
-    text-align: center;
     float: left;
   }
 
@@ -43,10 +53,8 @@
   }
 
   .btn {
+    @include font;
+    @include color(white,#088A29);
     margin-top: 30px;
-    background-color:#088A29;
-    color:white;
-    font-size: 16px;
-    font-weight: bold;
   }
 }

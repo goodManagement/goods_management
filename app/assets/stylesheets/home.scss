@@ -1,7 +1,7 @@
 // home#indexページ
 .index{
   h1 {
-    margin-top: 5vh;
+    margin-top: 6vh;
     font-size: 3vw;
     font-weight: bold;
     padding: .25em 0 .5em .75em;
@@ -11,23 +11,21 @@
   .table{
     margin-top: 3vh;
     .thead-dark{
-      font-size: 18px;
+      font-size: 1.5vw;
       th{
-          height:70px;
-
+          height:10vh;
         }
       }
     tbody {
       .hurry{
         th, td {
           color:red;
-
+          font-weight: bold;
         }
       }
       .font {
         th, td{
-        font-size: 18px;
-
+        font-size: 2vh;
         }
       }
     }
