@@ -11,4 +11,14 @@ class ItemsController < ApplicationController
   def new
     render :new, layout: "application_with_navbar"
   end
+
+  def search
+    search_name = params[:search][:name]
+    search_kind = params[:search][:kind]
+
+    @items = Item.all
+    if search_name.empty?
+    else
+
+  end
 end
