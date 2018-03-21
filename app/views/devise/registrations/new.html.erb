@@ -1,28 +1,31 @@
-<div class="blank"></div>
-<div class="registrations-new-wrapper devise-wrapper">
-  <a class="tab_item tab1" href="/users/sign_in">Sign in</a>
-  <p class="tab_item_current">Sign up</p>
+<div class="registrations-new-wrapper">
+  <div class="signup-main-wrapper">
+    <div class="title col-md-5"><h1>Welcome to GoodsManagement!!</h1></div>
+    <div class="signup-sub-wrapper devise-wrapper col-md-7">
+      <div class="signup-menu-wrapper">
+        <a class="tab_item_link col-md-6" href="/users/sign_in">Sign in</a>
+        <p class="tab_item_current col-md-6">Sign up</p>
 
-  <div class="tab_content" id="sign_up_content">
+        <div class="tab_content ">
+          <h2>Sign Up</h2>
+          <%= devise_error_messages! %>
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 
-    <h2>Sign Up</h2>
-    <hr class="colorgraph"><br>
-      <%= devise_error_messages! %>
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <div class="field">
+            <%= f.text_field :username, autocomplete: "off", placeholder: "User Name" %>
+          </div>
 
-    <div class="field">
-      <%= f.text_field :username, autocomplete: "off", placeholder: "User Name" %>
+          <div class="field">
+            <%= f.password_field :password, autocomplete: "off" ,placeholder: "Password"%>
+          </div>
+
+          <div class="field">
+            <%= f.password_field :password_confirmation, autocomplete: "off",  placeholder: "Password Confirmation"%>
+          </div>
+          <button class="btn btn-lg col-md-8 col-md-offset-2" type="submit">Sign Up</button>
+          <% end %>
+        </div>
+      </div>
     </div>
-
-    <div class="field">
-      <%= f.password_field :password, autocomplete: "off" ,placeholder: "Password"%>
-    </div>
-
-    <div class="field">
-      <%= f.password_field :password_confirmation, autocomplete: "off",  placeholder: "Password Confirmation"%>
-    </div>
-    <button class="btn btn-lg" type="submit">Sign Up</button>
-    <% end %>
   </div>
-
 </div>

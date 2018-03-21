@@ -1,30 +1,27 @@
-<div class="blank"></div>
-<div class="sessions-new-wrapper devise-wrapper">
-  <p class="tab_item_current tab1" >Sign in</p>
-  <a class="tab_item tab2" href="/users/sign_up">Sign up</a>
+<div class="sessions-new-wrapper">
+  <div class="signin-main-wrapper">
+    <div class="title col-md-5"><h1>Welcome to GoodsManagement!!</h1></div>
+    <div class="signin-sub-wrapper devise-wrapper col-md-7">
+      <div class="signin-menu-wrapper">
+        <p class="tab_item_current col-md-6" >Sign in</p>
+        <a class="tab_item_link col-md-6" href="/users/sign_up">Sign up</a>
 
-  <div class ="tab_content" id="sign_in_content">
-    <h2>Sign in</h2>
-    <hr class="colorgraph"><br>
-    <p class="alert"><%= alert %></>
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class ="tab_content">
+          <h2>Sign in</h2>
+          <p class="alert"><%= alert %></>
+            <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
-    <div class="field">
-      <%= f.text_field :username,autocomplete: "off" , placeholder: "User name" %>
-    </div>
+            <div class="field">
+              <%= f.text_field :username,autocomplete: "off" , placeholder: "User name" %>
+            </div>
 
-    <div class="field">
-      <%= f.password_field :password, autocomplete: "off" ,placeholder: "Password"%>
-    </div>
-
-    <% if devise_mapping.rememberable? -%>
-      <div class="check_box">
-        <%= f.check_box :remember_me %>
-        <%= f.label :remember_me %>
+            <div class="field">
+              <%= f.password_field :password, autocomplete: "off" ,placeholder: "Password"%>
+            </div>
+            <button class="btn btn-lg col-md-8 col-md-offset-2" type="submit">Sign in</button>
+            <% end %>
+        </div>
       </div>
-    <% end -%>
-
-    <button class="btn btn-lg" type="submit">Sign in</button>
-    <% end %>
+    </div>
+    </div>
   </div>
-</div>

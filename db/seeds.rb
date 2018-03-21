@@ -15,22 +15,8 @@ user_names.each do |name, val|
   user = User.new(
     :username => name,
     :is_admin => val,
-    :email => "#{name}@a.com",
+    :email => "",
     :password => "abcdef")
   user.save!
-
-  5.times do |i|
-    item = Item.create(
-      name: "#{user.username}_item#{i}",
-      serial_number: i+100,
-      kind: i % 3)
-    if(i % 5 == 0)
-      Lending.create(
-        user_id: user.id,
-        item_id: item.id,
-        dead_line: Date.today
-      )
-    end
-  end
 
 end

@@ -1,79 +1,47 @@
+//ログイン画面
 .sessions-new-wrapper {
-  max-width: 380px;
-  width: 100% !important;
-  margin: 0 auto;
+  background-image: url("/image/background.jpg");
+  background-size: cover;
+  height: 100vh;
+  width:100vw;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  .signin-main-wrapper {
+    //Welcome to GoodsManagement
+    .title {
+      h1 {
+        margin-top: 8vh;
+        color:white;
+        font-size: 6vh;
+        font-style: italic;
+      }
+     }
 
+    .signin-sub-wrapper {
+      .signin-menu-wrapper {
+          margin: 0 20% 0 20%;
+          //sign in
+          h2{
+            font-weight: bold;
+            color:white;
+            margin-bottom: 2vh;
+          }
 
+          .alert{
+            color:#088A29;
+            text-align: left;
+            padding:0 0 0 2vw;
+          }
 
-  #sign_in_content{
-    font-style: italic;
-    text-align: center;
-    padding:0 30px 30px 30px;
-    margin: 0 auto;
-    background-color: rgba(253, 177, 55, 0.1);
-  }
+          input {
+            height: 5vh;
+            width: 13vw;
+            padding-left: 8px;
+            border: 1px solid #ccc;
+          }
 
-  .tab2{
-    border-left: 2px solid rgba(0, 0, 0, 0.2);
-  }
-
-  h2{
-    font-weight: bold;
-    color:#fdb137;
-  }
-
-
-
-
-  .alert{
-    color:#c89137;
-    text-align: left;
-    padding-top: 0;
-    padding-bottom: 0;
-  }
-
-  input {
-    #user_username{
-      height: 35px;
-      width: 200px;
-      padding-left: 8px;
-      border: 1px solid #ccc;
-      border-top-left-radius: 3px;
-      border-top-right-radius: 3px;
-
-    }
-
-    #user_password{
-      height: 35px;
-      width: 200px;
-      padding-left: 8px;
-      border: 1px solid #ccc;
-      border-bottom-left-radius: 3px;
-      border-bottom-right-radius: 3px;
+      }
     }
   }
-
-  .check_box{
-    margin-top: 10px
-  }
-
-  .btn{
-    margin-top: 30px;
-    background-color:#fdb137;
-    color:white;
-    font-size: 16px;
-    font-weight: bold;
-    width:80%;
-    box-shadow:0 7px #c89137;
-
-    &:hover{
-      color:white;
-      position:relative;
-      top:7px;
-      box-shadow: none;
-    }
-  }
-
-
-
 }

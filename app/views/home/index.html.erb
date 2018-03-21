@@ -1,37 +1,29 @@
+<div class="index">
+  <h1 class="col-md-6"><%= current_user.username %>の借りてるやつ</h1>
 
-<h1><%= current_user.username %>の借りてるやつ</h1>
-
-<table class="table table-striped">
-  <thead class="thead-dark">
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Name</th>
-      <th scope="col">Serial Number</th>
-      <th scope="col">DeadLine</th>
-      <th scope="col">Return</th>
-      <th scope="col">Renew</th>
-    </tr>
-  </thead>
-  <tbody>
+  <table class="table table-striped">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Serial Number</th>
+        <th scope="col">DeadLine</th>
+        <th scope="col">Return</th>
+        <th scope="col">Renew</th>
+      </tr>
+    </thead>
+    <tbody>
 
     <% @lendings.select{|lending| lending.item.present? }.each_with_index do |lending,i| %>
-
-    <tr class="<%= add_hurry_class(lending) %> font">
-      <th scope="row"><%= i+1 %></th>
-      <td><%=lending.item.name%></td>
-      <td><%=lending.item.serial_number%></td>
-      <td><%=lending.dead_line%></td>
-      <td>
-        <%= link_to("Return","/home/back",{method: :post, id: lending.item.serial_number, :class =>"font btn btn-success"}) %>
-      </td>
-      <td>
-        <%= link_to("Renew","/home/renew",{method: :post, id: lending.item.serial_number, :class =>"font btn btn-primary"}) %>
-      </td>
-    </tr>
-
-  <% end %>
-
-  </tbody>
-
-
-</table>
+      <tr class="<%= add_hurry_class(lending) %> font">
+        <th scope="row"><%= i+1 %></th>
+        <td><%=lending.item.name%></td>
+        <td><%=lending.item.serial_number%></td>
+        <td><%=lending.dead_line%></td>
+        <td><%= link_to("Return","/home/back",{method: :post, id: lending.item.serial_number, :class =>"font btn btn-success"}) %></td>
+        <td><%= link_to("Renew","/home/renew",{method: :post, id: lending.item.serial_number, :class =>"font btn btn-primary"}) %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
