@@ -1,10 +1,12 @@
 .devise-wrapper {
   .tab_item_link {
     font-style: italic;
+    font-weight: bold;
     height: 5vh;
     margin-top: 1vh;
     background-color: rgba(8,138,41,0.8);
-    line-height:4vh;
+    border-radius: 10px 10px 0 0;
+    line-height:5vh;
     font-size: 16px;
     text-align: center;
     color: #fff;
