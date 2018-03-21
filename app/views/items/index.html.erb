@@ -48,7 +48,7 @@
         <td><%= item.name %></td>
         <td><%= item.serial_number %></td>
         <td><%= item.kind %></td>
-        <% if item.current_lending.present? %>
+        <% if item.current_lendings.present? %>
         <td><span class="badge badge-red">貸出中</span></td>
         <% else %>
         <td><a href="" class="btn btn-primary">貸出可</a></td>
