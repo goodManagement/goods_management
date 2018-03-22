@@ -10,7 +10,8 @@ Rails.application.routes.draw do
   }
 
   get 'home/index'
-  resources :lendings
+  patch "lendings" => "lendings#update"
+  resources :lendings, except: [:show, :update]
 
   devise_scope :user do
     root to: 'devise/registrations#new'
