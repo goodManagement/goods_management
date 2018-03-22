@@ -1,0 +1,58 @@
+
+<!-- モーダルダイアログ -->
+  <div class="modal" id="lending-renew-modal" tabindex="-1" role="dialog" aria-labelledby="lending-modal-label" aria-hidden="true" data-show="true" data-keyboard="false" data-backdrop="static">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">
+            <span aria-hidden="true">&#215;</span><span class="sr-only">閉じる</span>
+          </button>
+          <h4 class="modal-title">Modal Title</h4>
+        </div><!-- /modal-header -->
+        <div class="modal-body">
+            <h4 class="modal-name">Name</h4>
+            <div class="controls">
+
+            <%= form_tag('/lendings', :method => :patch) do %>
+                <%= hidden_field :update, :item_id %>
+                <%= text_field :update, :dead_line, :class => 'form-control datetimepicker', placeholder: 'Deadline' %>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+          <!-- <button type="button" class="btn btn-primary">変更を保存</button> -->
+          <%= submit_tag "延長する", class: "btn btn-primary" %>
+        </div>
+          <% end %>
+      </div> <!-- /.modal-content -->
+    </div> <!-- /.modal-dialog -->
+  </div> <!-- /.modal -->
+
+  <script>
+  $(function() {
+     'use strict';
+    // JavaScript で表示
+
+
+    // ダイアログ表示前にJavaScriptで操作する
+    $('#lending-renew-modal').on('show.bs.modal', function(event) {
+      var button = $(event.relatedTarget);
+      var title = button.text();
+      var recipient = button.data('whatever');
+      var item_id = button.data('itemid');
+      console.log(item_id);
+      var modal = $(this);
+      modal.find('.modal-name').text(recipient);
+      modal.find('.modal-title').text(title);
+      modal.find('#update_item_id').val(item_id);
+      //modal.find('.modal-body input').val(recipient);
+    });
+
+
+    $('.datetimepicker').datetimepicker({
+      format: 'YYYY-MM-DD',
+      minDate: moment()
+    });
+
+  });
+  </script>
