@@ -1,11 +1,12 @@
 // ログインの本体部分
 
 //文字のスタイル、大きさ、形
-@mixin  font{
+@mixin  font {
   font-style: italic;
   font-weight: bold;
   font-size: 16px;
 }
+
 //背景色と文字色
 @mixin color($font_color, $background_color){
     color:$font_color;

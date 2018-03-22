@@ -1,4 +1,4 @@
-// items#indexに対応
+// items#index
 $(function(){
     $('.search-panel .dropdown-menu').find('a').click(function() {
 		var param = $(this).attr("value");
@@ -17,4 +17,4 @@ $(function(){
     }
   });
 });
-// items#index終了
+// end of items#index

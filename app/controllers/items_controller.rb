@@ -1,14 +1,19 @@
 class ItemsController < ApplicationController
+  # ユーザがログインしていないとアクセスできないようにする
+  before_action :authenticate_user!
+
+  # filterをかけるときのフラグ
   ALL = 1
   IS_NOT_LENT = 2
   IS_LENT = 3
   DEAD_LINE = 4
 
+  # items/index
   def index
     @items = Item.all
     filter = params[:filter]
     if filter == IS_LENT
-      @items = @items.where(is_lent: true)
+      @items = @items.select { |item| item.current_lending.is_lent }
     elsif filter == DEAD_LINE
     end
 
@@ -18,6 +23,22 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     render :new, layout: "application_with_navbar"
+  end
+
+
+  # items/search　itemの検索を行う
+  def search
+    search_name = params[:search][:name]
+    search_kind = params[:search][:kind]
+
+    @items = Item.all
+    if search_kind.present? and search_kind.to_i > 0
+      @items = @items.where(kind: search_kind)
+      p @items
+    elsif search_name.present?
+      @items = @items.where("name like '%#{search_name}%'")
+    end
+    render :index, layout: "application_with_navbar"
   end
 
   def create

@@ -4,7 +4,8 @@
     <div class="signin-sub-wrapper devise-wrapper col-md-7">
       <div class="signin-menu-wrapper">
         <p class="tab_item_current col-md-6" >Sign in</p>
-        <a class="tab_item_link col-md-6" href="/users/sign_up">Sign up</a>
+        <% #<a class="tab_item_link col-md-6" href="/users/sign_up">Sign up</a>と同義 %>
+        <%= link_to "Sign Up", new_user_registration_path, class: "tab_item_link col-md-6" %>
 
         <div class ="tab_content">
           <h2>Sign in</h2>
@@ -23,5 +24,5 @@
         </div>
       </div>
     </div>
-    </div>
   </div>
+</div>

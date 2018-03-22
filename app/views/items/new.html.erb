@@ -1,28 +1,28 @@
 <div class="form_sub_wrapper col-md-offset-2 col-md-8 ">
   <div class="form_main_wrapper">
-<h1 class="col-md-offset-1 col-md-9">New Items Create</h1>
+    <h1 class="col-md-offset-1 col-md-9">New Items Create</h1>
 
-<%= form_for @item do |f| %>
-  <div class="form-group">
-    <h3 class="col-md-6 col-md-offset-1">Item Name</h3>
-    <%= f.text_field :name, :class=>"form-control col-md-offset-1", :placeholder=>"Item Name" %>
-  </div>
-  <div class="form-group">
-    <h3 class="col-md-6 col-md-offset-1">Serial Number</h3>
-    <%= f.text_field :serial_number, :class=>"form-control col-md-offset-1", :placeholder=>"Serial Number" %>
-  </div>
-  <div class="form-group">
-    <h3 class="col-md-6 col-md-offset-1">Kind</h3>
-    <%= f.select :kind, [["本", 1], ["PC", 2],["PC周辺機器",3],["スマホ・タブレット",4],["ウェアラブル端末",5]],{}, :class=>"form-control col-md-offset-1" %>
-  </div>
+    <%= form_for @item do |f| %>
+      <div class="form-group">
+        <h3 class="col-md-6 col-md-offset-1">Item Name</h3>
+        <%= f.text_field :name, :class=>"form-control col-md-offset-1", :placeholder=>"Item Name" %>
+      </div>
+      <div class="form-group">
+        <h3 class="col-md-6 col-md-offset-1">Serial Number</h3>
+        <%= f.text_field :serial_number, :class=>"form-control col-md-offset-1", :placeholder=>"Serial Number" %>
+      </div>
+      <div class="form-group">
+        <h3 class="col-md-6 col-md-offset-1">Kind</h3>
+        <%= f.select :kind, [["本", 1], ["PC", 2],["PC周辺機器",3],["スマホ・タブレット",4],["ウェアラブル端末",5]],{}, :class=>"form-control col-md-offset-1" %>
+      </div>
       <div class="form-check col-md-offset-1">
         <label>
           <%= f.check_box(:judge, checked:false, class: "form-check-input") %>Check here if you fill in the form
         </label>
       </div>
-  <div class="text-center">
-      <%= f.submit "Create", id:"btn", class: "btn disabled btn-lg",  disabled: true%>
+      <div class="text-center">
+        <%= f.submit "Create", id:"btn", class: "btn disabled btn-lg",  disabled: true%>
+      </div>
+    <% end %>
   </div>
-<% end %>
-</div>
 </div>

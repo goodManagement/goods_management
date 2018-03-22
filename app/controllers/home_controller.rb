@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-  # ユーザがログインしていないと"show"にアクセスできない
+  # ユーザがログインしていないと"show"にアクセスできないようにする
   before_action :authenticate_user!
 
   def index
@@ -19,6 +19,6 @@ class HomeController < ApplicationController
     redirect_to("/home/index")
   end
 
-  
+
 
 end

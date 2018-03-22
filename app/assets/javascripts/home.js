@@ -28,4 +28,4 @@ $(document).ready(function () {
     $('#application-with-navbar-wrapper').toggleClass('toggled');
   });
 });
-// views/home/index.html　終わり
+// end of views/home/index.html

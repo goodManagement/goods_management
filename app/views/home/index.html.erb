@@ -1,6 +1,4 @@
-
 <h1><%= current_user.username %>の借りてるやつ</h1>
-
 
 <table class="table table-striped">
   <thead class="thead-dark">
@@ -13,32 +11,28 @@
       <th scope="col">Renew</th>
     </tr>
   </thead>
+
   <tbody>
+    <% @lendings.select{ |lending| lending.item.present? }.each_with_index do |lending,i| %>
+      <tr class="<%= add_hurry_class(lending) %> font">
+        <th scope="row"><%= i+1 %></th>
+        <td><%=%></td>
+        <td><%=lending.item_id%></td>
+        <td><%=lending.dead_line%></td>
+        <td>
+          <%= link_to("Return","/home/back",{method: :post, id: lending.item.serial_number, :class =>"font btn btn-success"}) %>
 
-    <% @lendings.select{|lending| lending.item.present? }.each_with_index do |lending,i| %>
-
-    <tr class="<%= add_hurry_class(lending) %> font">
-      <th scope="row"><%= i+1 %></th>
-      <td><%=%></td>
-      <td><%=lending.item_id%></td>
-      <td><%=lending.dead_line%></td>
-      <td>
-        <%= link_to("Return","/home/back",{method: :post, id: lending.item.serial_number, :class =>"font btn btn-success"}) %>
-
-      </td>
-      <td>
-        <!-- <%= link_to("Renew","/home/renew",{method: :post, id: lending.item.serial_number, :class =>"font btn btn-primary"}) %> -->
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#lending-renew-modal" data-whatever="<%= lending.item.name %>" data-itemid="<%= lending.item.id %>">延長</button>
-      </td>
-    </tr>
-
-
-  <% end %>
-
+        </td>
+        <td>
+          <!-- <%= link_to("Renew","/home/renew",{method: :post, id: lending.item.serial_number, :class =>"font btn btn-primary"}) %> -->
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#lending-renew-modal" data-whatever="<%= lending.item.name %>" data-itemid="<%= lending.item.id %>">延長</button>
+        </td>
+      </tr>
+    <% end %>
   </tbody>
 
 </table>
 
 
 <% # modal %>
-<%= render "layouts/lendingRenewModal" %>
+<%= render "layouts/lending_renew_modal" %>

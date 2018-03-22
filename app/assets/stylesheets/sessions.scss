@@ -1,4 +1,4 @@
-//ログイン画面
+//sessions#new
 .sessions-new-wrapper {
   background-image: url("/image/background.jpg");
   background-size: cover;
@@ -16,32 +16,32 @@
         font-size: 6vh;
         font-style: italic;
       }
-     }
+    }
 
     .signin-sub-wrapper {
       .signin-menu-wrapper {
-          margin: 0 20% 0 20%;
-          //sign in
-          h2{
-            font-weight: bold;
-            color:white;
-            margin-bottom: 2vh;
-          }
+        margin: 0 20% 0 20%;
+        //sign in
+        h2{
+          font-weight: bold;
+          color:white;
+          margin-bottom: 2vh;
+        }
 
-          .alert{
-            color:#088A29;
-            text-align: left;
-            padding:0 0 0 2vw;
-          }
+        .alert{
+          color:#088A29;
+          text-align: left;
+          padding:0 0 0 2vw;
+        }
 
-          input {
-            height: 5vh;
-            width: 13vw;
-            padding-left: 8px;
-            border: 1px solid #ccc;
-          }
-
+        input {
+          height: 5vh;
+          width: 13vw;
+          padding-left: 8px;
+          border: 1px solid #ccc;
+        }
       }
     }
   }
 }
+// end of sessions#new

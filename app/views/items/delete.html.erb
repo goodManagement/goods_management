@@ -1,20 +1,20 @@
 <div class="form_sub_wrapper col-md-offset-2 col-md-8 ">
   <div class="form_main_wrapper">
-<h1 class="col-md-offset-1 col-md-9">Delete Items</h1>
+    <h1 class="col-md-offset-1 col-md-9">Delete Items</h1>
 
-<%= form_tag('/items', :method => :delete) do %>
-  <div class="form-group">
-    <h3 class="col-md-6 col-md-offset-1">Serial Number</h3>
-    <%= text_field :delete, :serial_numbers, :class=>"form-control col-md-offset-1", :placeholder=>"Serial Number : 複数のアイテムを削除するときは「,」で区切ってください" %>
-  </div>
+    <%= form_tag('/items', :method => :delete) do %>
+      <div class="form-group">
+        <h3 class="col-md-6 col-md-offset-1">Serial Number</h3>
+        <%= text_field :delete, :serial_numbers, :class=>"form-control col-md-offset-1", :placeholder=>"Serial Number : 複数のアイテムを削除するときは「,」で区切ってください" %>
+      </div>
       <div class="form-check col-md-offset-1">
-       <label>
-        <%= check_box(:judge, checked:false, class: "form-check-input") %>Check here if you fill in the form
+        <label>
+          <%= check_box(:judge, checked:false, class: "form-check-input") %>Check here if you fill in the form
         </label>
       </div>
-  <div class="text-center">
-      <%= submit_tag "Delete", id:"btn", class: "btn disabled btn-lg"%>
+      <div class="text-center">
+        <%= submit_tag "Delete", id:"btn", class: "btn disabled btn-lg"%>
+      </div>
+    <% end %>
   </div>
-<% end %>
-</div>
 </div>

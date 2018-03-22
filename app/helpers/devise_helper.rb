@@ -1,4 +1,5 @@
 module DeviseHelper
+  # deviseのエラーメッセージを表示する
   def devise_error_messages!
       return "" if resource.errors.empty? and flash.empty?
       html = ""
