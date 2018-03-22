@@ -10,11 +10,17 @@ class ItemsController < ApplicationController
 
   # items/index
   def index
+    # @items = Item.all
+    filter = params[:filter].to_i
+
     @items = Item.all
-    filter = params[:filter]
-    if filter == IS_LENT
-      @items = @items.select { |item| item.current_lending.is_lent }
+    if filter == IS_NOT_LENT
+      p "IS NOT LENTに入っている"
+      @items = Item.not_lent_items
+    elsif filter == IS_LENT
+      @items = Item.lent_items
     elsif filter == DEAD_LINE
+      @items = Lending.dead_items
     end
 
     render :index, layout: "application_with_navbar"

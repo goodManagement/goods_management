@@ -19,8 +19,8 @@
 
     .signup-sub-wrapper {
       .signup-menu-wrapper {
-        margin: 0 20% 0 20%;
-        h2{
+        margin: 0 10vw;
+        h2 {
           font-weight: bold;
           color:white;
           margin-bottom: 3vh;
@@ -32,11 +32,11 @@
           padding-left: 2vw;
         }
 
-        input{
-          height: 4vh;
-          width: 13vw;
-          padding-left: 8px;
-          border: 1px solid #ccc;
+        input {
+          height: 5vh;
+          width: 20vw;
+          padding-left: 2vh;
+          border: 0.05vh solid #ccc;
         }
       }
     }

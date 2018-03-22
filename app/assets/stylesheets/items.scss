@@ -1,8 +1,8 @@
 
 // 検索boxの周りの余白
 .input-group {
-  margin-top: 30px;
-  margin-bottom: 20px;
+  margin-top: 5vh;
+  margin-bottom: 4vh;
 }
 
 // 一覧のリスト要素の位置固定
@@ -45,7 +45,6 @@
       background: linear-gradient(transparent 70%, #a7d6ff 70%);
     }
     .btn {
-      width:10vw;
       background-color:#2E9AFE;
       color:white;
     }

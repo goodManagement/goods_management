@@ -8,13 +8,13 @@
 }
 
 //背景色と文字色
-@mixin color($font_color, $background_color){
+@mixin color($font_color, $background_color) {
     color:$font_color;
     background-color:$background_color;
 }
 
 //高さと行間合わせ
-@mixin height($height,$line-height){
+@mixin height($height,$line-height) {
   height:$height;
   line-height: $line-height;
   text-align: center;
@@ -35,7 +35,7 @@
     }
   }
 
-  .tab_item_current{
+  .tab_item_current {
     @include font;
     @include color(white,rgba(0,0,0,0.6));
     @include height(6vh,6vh);

@@ -13,5 +13,9 @@ class Lending < ApplicationRecord
     update(is_lent=false)
   end
 
+  # 今現在貸出期限を超えているitemを全取得する
+  def self.dead_items
+    Lending.where(is_lent: true).select{|lending| lending.dead_line < Date.today }
+  end
 
 end

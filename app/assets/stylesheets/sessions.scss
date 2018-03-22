@@ -20,25 +20,25 @@
 
     .signin-sub-wrapper {
       .signin-menu-wrapper {
-        margin: 0 20% 0 20%;
+        margin: 0 10vw;
         //sign in
         h2{
           font-weight: bold;
           color:white;
-          margin-bottom: 2vh;
+          margin-bottom: 3vh;
         }
 
-        .alert{
+        .alert {
           color:#088A29;
           text-align: left;
-          padding:0 0 0 2vw;
+          padding-left: 2vw;
         }
 
         input {
           height: 5vh;
-          width: 13vw;
-          padding-left: 8px;
-          border: 1px solid #ccc;
+          width: 20vw;
+          padding-left: 2vh;
+          border: 0.05vh solid #ccc;
         }
       }
     }
