@@ -34,6 +34,10 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootstrap-sass'
 gem 'jquery-rails'
 
+#bootstrap datetimepicker
+gem 'momentjs-rails'
+gem 'bootstrap3-datetimepicker-rails'
+
 # devise導入
 gem 'devise'
 # Use Capistrano for deployment

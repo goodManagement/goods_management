@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   }
 
   get 'home/index'
+  resources :lendings
 
   devise_scope :user do
     root to: 'devise/registrations#new'
