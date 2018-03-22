@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  resources :items
+  get "items/delete" => "items#delete"
+  delete "items" => "items#destroy"
+  resources :items, except: :destroy
+
 
   devise_for :users, :controllers => {
     sessions: 'users/sessions',
