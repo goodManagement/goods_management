@@ -1,3 +1,4 @@
+// items#indexに対応
 $(function(){
     $('.search-panel .dropdown-menu').find('a').click(function() {
 		var param = $(this).attr("value");
@@ -14,7 +15,6 @@ $(function(){
         $('.btn').addClass("disabled");
         btn.setAttribute('disabled', 'disabled');
     }
-
   });
-
 });
+// items#index終了

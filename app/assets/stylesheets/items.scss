@@ -1,33 +1,26 @@
 
+// 検索boxの周りの余白
 .input-group {
   margin-top: 30px;
   margin-bottom: 20px;
-
-
-
-
 }
 
-.badge.badge-red {
-  background-color: red;
-}
-
-
+// 一覧のリスト要素の位置固定
 .items-index-wrapper {
-
   table tbody tr td {
     display: table-cell;
     vertical-align: middle
   }
 }
 
-// th{
-//   display: table-cell;
-//   vertical-align: middle;
-// }
+// 貸出中ラベルのサイズ固定
+.badge.badge-red {
+  background-color: red;
+  font-size: 14px;
+  padding: 10px 12px;
+}
 
-
-
+// new.htnl.erb
 .col-md-offset-0 {
   margin-top: 50px;
 }

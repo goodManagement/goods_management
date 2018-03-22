@@ -1,60 +1,75 @@
 <div class="items-index-wrapper">
-<div class="row　text-center">
-    <div class="col-xs-8 col-xs-offset-2">
-      <%= form_tag items_search_path do %>
 
-      <div class="input-group">
-          <div class="input-group-btn search-panel">
+  <%# 一覧の検索フィルターの設置 %>
+  <div class="row　text-center">
+      <div class="col-xs-8 col-xs-offset-2">
+
+        <%= form_tag items_search_path do %>
+
+          <div class="input-group">
+            <div class="input-group-btn search-panel">
               <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                 <span id="search_concept">Filter by</span> <span class="caret"></span>
               </button>
               <ul class="dropdown-menu" role="menu">
+                <li><a value="0">全表示</a></li>
                 <li><a value="1">本</a></li>
                 <li><a value="2">PC本体</a></li>
                 <li><a value="3">PC周辺機器</a></li>
                 <li><a value="4">スマホ・タブレット</a></li>
-                <li><a value="4">ウェアラブル端末</a></li>
+                <li><a value="5">ウェアラブル端末</a></li>
               </ul>
+            </div>
+
+              <%= hidden_field :search, :kind, id: "search_kind"  %>
+              <%= text_field :search, :name, class: "form-control", placeholder: "Search by Name" %>
+
+              <span class="input-group-btn">
+                  <%= button_tag '', type: "submit", class: "btn btn-default" do %>
+                    <span class="glyphicon glyphicon-search"></span>
+                  <% end %>
+              </span>
+
+
           </div>
 
-          <!-- <input type="hidden" name="search_param" value="0" id="search_param"> -->
-          <%= hidden_field :search, :kind, id: "search_kind"  %>
-          <%= text_field :search, :name, class: "form-control", placeholder: "Search by Name" %>
-          <!-- <input type="text" id="search_name" class="form-control" name="search_name" placeholder="Search Name"> -->
-          <span class="input-group-btn">
-              <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
-          </span>
-      </div>
-    <% end %>
-
-    </div>
-</div>
-
-
-<table class="table table-stripe">
-  <thead >
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">name</th>
-      <th scope="col">serial_number</th>
-      <th scope="col">kind</th>
-      <th scope="col">貸出状態</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @items.each_with_index do |item,i| %>
-      <tr>
-        <th scope="row" style="display: table-cell; vertical-align: middle">i</th>
-        <td><%= item.name %></td>
-        <td><%= item.serial_number %></td>
-        <td><%= item.kind %></td>
-        <% if item.current_lendings.present? %>
-        <td><span class="badge badge-red">貸出中</span></td>
-        <% else %>
-        <td><a href="" class="btn btn-primary">貸出可</a></td>
         <% end %>
+
+      </div>
+  </div>
+
+  <%# 物品リスト表示 %>
+  <table class="table table-stripe">
+    <thead >
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">name</th>
+        <th scope="col">serial_number</th>
+        <th scope="col">kind</th>
+        <th scope="col">貸出状態</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+
+      <% @items.each_with_index do |item,i| %>
+        <tr>
+          <th scope="row" style="display: table-cell; vertical-align: middle">
+            <%= i+1 %>
+          </th>
+          <td><%= item.name %></td>
+          <td><%= item.serial_number %></td>
+          <td><%= item.kind %></td>
+
+        <%#　貸出可のときボタン、貸出不可のときラベルを表示%>
+          <% if item.current_lending.present? %>
+            <td><span class="badge badge-red">貸出中</span></td>
+          <% else %>
+            <td><a href="" class="btn btn-primary">貸出可</a></td>
+          <% end %>
+
+        </tr>
+      <% end %>
+
+    </tbody>
+  </table>
 </div>

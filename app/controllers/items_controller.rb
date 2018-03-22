@@ -1,10 +1,6 @@
 class ItemsController < ApplicationController
   def index
-    @items = []
-    30.times do |i|
-      item = Item.new(serial_number:0000+i, name:"item#{i}", kind:i)
-      @items.push(item)
-    end
+    @items = Item.all
     render :index, layout: "application_with_navbar"
   end
 
@@ -22,13 +18,18 @@ class ItemsController < ApplicationController
       messages = ""
       @item.errors.full_messages.each{|msg| messages += "#{msg}¥n"}
 
-      flash[:alert]= messages
-      redirect_to("/items/new")
+
+      @items = Item.all
+      if search_kind.present? and search_kind.to_i > 0
+        @items = @items.where(kind: search_kind)
+        p @items
+      elsif search_name.present?
+        @items = @items.where("name like '%#{search_name}%'")
+      end
     end
   end
 
   def destroy
-
     items_serial_numbers = params[:delete][:serial_numbers].split(",")
     items_serial_numbers.each do | item_serial_number |
       @item = Item.find_by(serial_number: item_serial_number)
