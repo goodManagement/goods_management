@@ -56,11 +56,11 @@
           <td><%= item.serial_number %></td>
           <td><%= item.kind %></td>
 
-          <%#　貸出可のときボタン、貸出不可のときラベルを表示%>
+          <%#　貸出可のときボタン、貸出不可のときラベルを表示 %>
           <% if item.current_lending.present? %>
             <td><span class="badge badge-red">貸出中</span></td>
           <% else %>
-            <td><a href="" class="btn btn-primary">貸出可</a></td>
+            <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#lending-lend-modal" data-item-name="<%= item.name %>" data-item-id="<%= item.id %>">貸出可</button></td>
           <% end %>
         </tr>
       <% end %>
@@ -68,3 +68,5 @@
     </tbody>
   </table>
 </div>
+
+<%= render 'layouts/lending_lend_modal' %>

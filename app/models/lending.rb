@@ -8,6 +8,7 @@ class Lending < ApplicationRecord
      created_at < updated_at
   end
 
+  # itemを返却する
   def return_item
     update(is_lent=false)
   end

@@ -20,16 +20,8 @@
     <ul class="nav navbar-nav navbar-right">
 
       <li class="nav-item"><p class="navbar-text">Logged in by <%= current_user.username %></p></li>
-      <li class="nav-item dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-          setting
-          <span class="caret"></span>
-        </a>
-        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <li><a class="dropdown-item" href="#">物品追加</a></li>
-          <li><a class="dropdown-item" href="#">物品削除</a></li>
-        </ul>
-      </li>
+      <%# adminユーザーのみ物品管理系のメニューを用意する %>
+      <%= show_admin_menu %>
       <li class="nav-item dropdown">
         <a class="dropdown-toggle" href="#" data-toggle="dropdown">
           My Page
@@ -37,8 +29,8 @@
         </a>
         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <li><a class="dropdown-item" href="#">ヘルプ</a></li>
-          <li><a class="dropdown-item" href="#">設定とプライバシー</a></li>
-          <li><%= link_to(destroy_user_session_path, class: "dropdown-item", method: :DELETE) do %>サインアウト<% end %></li>
+          <!-- <li><a class="dropdown-item" href="#">設定とプライバシー</a></li> -->
+          <li><%= link_to destroy_user_session_path, class: "dropdown-item", method: :DELETE do %>サインアウト<% end %></li>
         </ul>
       </li>
     </ul>

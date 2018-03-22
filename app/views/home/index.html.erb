@@ -20,7 +20,7 @@
         <td><%=lending.item_id%></td>
         <td><%=lending.dead_line%></td>
         <td>
-          <%= link_to("Return","/home/back",{method: :post, id: lending.item.serial_number, :class =>"font btn btn-success"}) %>
+          <%= link_to "Return", home_back_path, method: :post, id: lending.item.serial_number, class: "font btn btn-success" %>
 
         </td>
         <td>
