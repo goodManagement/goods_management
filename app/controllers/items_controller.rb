@@ -1,14 +1,17 @@
 class ItemsController < ApplicationController
+  ALL = 1
+  IS_NOT_LENT = 2
+  IS_LENT = 3
+  DEAD_LINE = 4
+
   def index
-<<<<<<< HEAD
     @items = Item.all
-=======
-    @items = []
-    30.times do |i|
-      item = Item.new(serial_number:0000+i, name:"item#{i}", kind:i)
-      @items.push(item)
+    filter = params[:filter]
+    if filter == IS_LENT
+      @items = @items.where(is_lent: true)
+    elsif filter == DEAD_LINE
     end
->>>>>>> 3f08f76ed2e293a1d0dc90eff90aa2c563f0895f
+
     render :index, layout: "application_with_navbar"
   end
 
