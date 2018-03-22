@@ -31,3 +31,30 @@
 .col-md-offset-0 {
   margin-top: 50px;
 }
+
+
+.form_sub_wrapper{
+  background-color:#D8D8D8 ;
+  padding: 2vh;
+  margin-top: 8vh;
+  .form_main_wrapper{
+  border: 2px solid #ccc;
+    border-radius: 10px;
+    background-color: white;
+    padding: 3vh;
+    .form-group{
+        width:80%;
+    }
+    .form-check-input{
+      margin-right: 5px;
+    }
+    h1 {
+      background: linear-gradient(transparent 70%, #a7d6ff 70%);
+    }
+    .btn{
+      width:10vw;
+      background-color:#2E9AFE;
+      color:white;
+    }
+  }
+}
