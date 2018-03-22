@@ -1,6 +1,11 @@
 class ItemsController < ApplicationController
   def index
-    @items = Item.all
+    @item = Item.all
+    # if params[:filter] == 1
+    #
+    # elsif params[:filter] == 2
+    # else
+    # end
     render :index, layout: "application_with_navbar"
   end
 

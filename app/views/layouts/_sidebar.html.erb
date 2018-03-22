@@ -3,16 +3,16 @@
   <ul class="nav sidebar-nav">
     <li class="sidebar-brand"><a href="#">Brand</a></li>
     <li>
-      <a href="#">Home</a>
+      <%= link_to '貸出中物', home_index_path %>
     </li>
     <li>
-      <a href="#">About</a>
+      <%= link_to '探す', items_path(filter:3) %>
     </li>
     <li>
-      <a href="#">Events</a>
+      <%= link_to '貸出し中' %>
     </li>
     <li>
-      <a href="#">Team</a>
+      <%= link_to 'レッドリスト' %>
     </li>
     <li class="dropdown">
       <a data-target="#" href="http://cyberlab.info" data-toggle="dropdown" aria-expanded="false">
@@ -24,12 +24,6 @@
         <li role="presentation"><a href="#">リンクのリスト２</a></li>
         <li role="presentation"><a href="#">リンクのリスト３</a></li>
       </ul>
-    </li>
-    <li>
-      <a href="#">Services</a>
-    </li>
-    <li>
-      <a href="#">Contact</a>
     </li>
   </ul>
 </nav>
