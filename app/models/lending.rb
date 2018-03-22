@@ -1,4 +1,5 @@
 class Lending < ApplicationRecord
+  validates :dead_line, presence: true
   belongs_to :user
   belongs_to :item
 

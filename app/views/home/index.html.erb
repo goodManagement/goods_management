@@ -1,6 +1,4 @@
-<!-- bootstrap適用できない -->
-<!-- 行番号の割り振り -->
-<!-- 行の中身の高さが揃わない -->
+
 <h1><%= current_user.username %>の借りてるやつ</h1>
 
 
@@ -26,8 +24,8 @@
       <td><%=lending.dead_line%></td>
       <td>
         <!-- <%= link_to("Return","/home/back",{method: :post, id: lending.item.serial_number, :class =>"font btn btn-success"}) %> -->
-        <button type="button" class="btn btn-default" id="staticModalButton">貸出</button>
-      
+        <button type="button" class="btn btn-default" id="staticModalButton" data-toggle="modal" data-target="#staticModal" data-whatever="<%= lending.item.name %>">貸出</button>
+
       </td>
       <td>
         <%= link_to("Renew","/home/renew",{method: :post, id: lending.item.serial_number, :class =>"font btn btn-primary"}) %>
@@ -51,19 +49,21 @@
           <h4 class="modal-title">貸出</h4>
         </div><!-- /modal-header -->
         <div class="modal-body">
-
+            <h4 class="modal-name">Name</h4>
             <div class="controls">
               <% @lending = Lending.new unless @lending %>
               <%= form_for(@lending) do |f| %>
-                <%= f.text_field :dead_line, data: { :date_format => 'YYYY/MM/DD hh:mm' }, :class => 'form-control datetimepicker', placeholder: 'Dead Line' %>
-              <% end %>
+                <%= f.text_field :dead_line, data: { :date_format => 'YYYY/MM/DD hh:mm' }, :class => 'form-control datetimepicker', placeholder: 'Deadline' %>
+
             </div>
 
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
-          <button type="button" class="btn btn-primary">変更を保存</button>
+          <!-- <button type="button" class="btn btn-primary">変更を保存</button> -->
+          <%= f.submit "変更を保存", class: "btn btn-primary" %>
         </div>
+          <% end %>
       </div> <!-- /.modal-content -->
     </div> <!-- /.modal-dialog -->
   </div> <!-- /.modal -->
@@ -83,19 +83,12 @@
       var button = $(event.relatedTarget);
       var recipient = button.data('whatever');
       var modal = $(this);
-      modal.find('.modal-body .recipient').text(recipient);
+      modal.find('.modal-name').text(recipient);
       //modal.find('.modal-body input').val(recipient);
     });
 
-$('.datetimepicker').datetimepicker();
+    $('.datetimepicker').datetimepicker();
 
-    // ダイアログ表示直後にフォーカスを設定する
-    $('#staticModal').on('shown.bs.modal', function(event) {
-      $(this).find('.modal-footer .btn-default').focus();
-    });
-    $('#staticModal').on('click', '.modal-footer .btn-primary', function() {
-      $('#staticModal').modal('hide');
-      alert('変更を保存をクリックしました。');
-    });
+
   })(jQuery);
   </script>
