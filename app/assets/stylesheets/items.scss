@@ -1,3 +1,9 @@
+@mixin badge-style($color) {
+  background-color: $color;
+  font-size: 14px;
+  padding: 5px 6px;
+}
+
 
 // 検索boxの周りの余白
 .input-group {
@@ -9,15 +15,17 @@
 .items-index-wrapper {
   table tbody tr td {
     display: table-cell;
-    vertical-align: middle
+    vertical-align: middle;
   }
 }
 
 // 貸出中ラベルのサイズ固定
 .badge.badge-red {
-  background-color: red;
-  font-size: 14px;
-  padding: 10px 12px;
+  @include badge-style(red);
+}
+
+.badge.badge-blue {
+  @include badge-style(purple);
 }
 
 // new.htnl.erb

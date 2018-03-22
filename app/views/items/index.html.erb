@@ -59,8 +59,10 @@
           <%#　貸出可のときボタン、貸出不可のときラベルを表示 %>
           <% if item.current_lending.present? %>
             <td><span class="badge badge-red">貸出中</span></td>
+            <td><%= item.current_lending.dead_line %>まで</td>
           <% else %>
-            <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#lending-lend-modal" data-item-name="<%= item.name %>" data-item-id="<%= item.id %>">貸出可</button></td>
+            <td><span class="badge badge-blue">貸出可</span></td>
+            <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#lending-lend-modal" data-item-name="<%= item.name %>" data-item-id="<%= item.id %>">貸りる</button></td>
           <% end %>
         </tr>
       <% end %>
