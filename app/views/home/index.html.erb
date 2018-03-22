@@ -24,13 +24,14 @@
       <td><%=lending.dead_line%></td>
       <td>
         <!-- <%= link_to("Return","/home/back",{method: :post, id: lending.item.serial_number, :class =>"font btn btn-success"}) %> -->
-        <button type="button" class="btn btn-default" id="staticModalButton" data-toggle="modal" data-target="#staticModal" data-whatever="<%= lending.item.name %>">貸出</button>
+        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#staticModal" data-whatever="<%= lending.item.name %>" data-itemid="<%= lending.item.id %>">貸出</button>
 
       </td>
       <td>
         <%= link_to("Renew","/home/renew",{method: :post, id: lending.item.serial_number, :class =>"font btn btn-primary"}) %>
       </td>
     </tr>
+
 
   <% end %>
 
@@ -53,7 +54,9 @@
             <div class="controls">
               <% @lending = Lending.new unless @lending %>
               <%= form_for(@lending) do |f| %>
-                <%= f.text_field :dead_line, data: { :date_format => 'YYYY/MM/DD hh:mm' }, :class => 'form-control datetimepicker', placeholder: 'Deadline' %>
+                <%= f.hidden_field :user_id, :value => current_user.id %>
+                <%= f.hidden_field :item_id %>
+                <%= f.text_field :dead_line, :class => 'form-control datetimepicker', placeholder: 'Deadline' %>
 
             </div>
 
@@ -68,27 +71,28 @@
     </div> <!-- /.modal-dialog -->
   </div> <!-- /.modal -->
 
-
   <script>
-  (function($) {
+  $(function() {
      'use strict';
     // JavaScript で表示
-    $('#staticModalButton').on('click', function() {
-      $('#staticModal').modal();
-    });
 
 
     // ダイアログ表示前にJavaScriptで操作する
     $('#staticModal').on('show.bs.modal', function(event) {
       var button = $(event.relatedTarget);
       var recipient = button.data('whatever');
+      var item_id = button.data('itemid');
       var modal = $(this);
       modal.find('.modal-name').text(recipient);
+      modal.find('#lending_item_id').val(item_id);
       //modal.find('.modal-body input').val(recipient);
     });
 
-    $('.datetimepicker').datetimepicker();
 
+    $('.datetimepicker').datetimepicker({
+      format: 'YYYY-MM-DD',
+      minDate: moment()
+    });
 
-  })(jQuery);
+  });
   </script>
