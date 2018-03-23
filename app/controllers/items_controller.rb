@@ -10,19 +10,16 @@ class ItemsController < ApplicationController
 
   # items/index
   def index
-    # @items = Item.all
     filter = params[:filter].to_i
 
-    @items = Item.all
+    @items = Item.page(params[:page]).per(10)
     if filter == IS_NOT_LENT
-      p "IS NOT LENTに入っている"
-      @items = Item.not_lent_items
+      @items = Item.not_lent_items(params[:page])
     elsif filter == IS_LENT
-      @items = Item.lent_items
+      @items = Item.lent_items(params[:page])
     elsif filter == DEAD_LINE
-      @items = Lending.dead_items
+      @items = Lending.dead_items(params[:page])
     end
-
     render :index, layout: "application_with_navbar"
   end
 
@@ -37,10 +34,9 @@ class ItemsController < ApplicationController
     search_name = params[:search][:name]
     search_kind = params[:search][:kind]
 
-    @items = Item.all
+    @items = Item.page(params[:page]).per(10)
     if search_kind.present? and search_kind.to_i > 0
       @items = @items.where(kind: search_kind)
-      p @items
     elsif search_name.present?
       @items = @items.where("name like '%#{search_name}%'")
     end
@@ -76,12 +72,12 @@ class ItemsController < ApplicationController
           @item.destroy
         rescue
           messages = ""
-          @item.errors.full_messages.each{|msg| messages += "#{msg}¥n"}
+          @item.errors.full_messages.each {|msg| messages += "#{msg}¥n"}
           flash[:alert]= messages
           redirect_to("/items/delete") and return
         end
       else # @item = nilだったら
-        flash[:alert] = "#{item_serial_number}のアイテムは存在しません"
+        flash[:alert] = "#シリアルナンバーが{item_serial_number}のアイテムは存在しません"
         redirect_to("/items/delete") and return
       end
     end

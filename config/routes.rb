@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get "items/delete" => "items#delete"
   delete "items" => "items#destroy"
+  post "items/search" => "items#search"
   resources :items, except: :destroy
 
 
@@ -20,6 +21,5 @@ Rails.application.routes.draw do
   post "home/back" => "home#return_item"
   post "home/renew" => "home#renew_item"
 
-  post "items/search" => "items#search"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
