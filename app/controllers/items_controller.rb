@@ -1,9 +1,14 @@
 class ItemsController < ApplicationController
   def index
-    @items = []
-    30.times do |i|
-      item = Item.new(serial_number:0000+i, name:"item#{i}", kind:i)
-      @items.push(item)
+    filter = params[:filter].to_i
+
+    @items = Item.page(params[:page]).per(10)
+    if filter == IS_NOT_LENT
+      @items = Item.not_lent_items(params[:page])
+    elsif filter == IS_LENT
+      @items = Item.lent_items(params[:page])
+    elsif filter == DEAD_LINE
+      @items = Lending.dead_items(params[:page])
     end
     render :index, layout: "application_with_navbar"
   end
@@ -11,6 +16,21 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     render :new, layout: "application_with_navbar"
+  end
+
+
+  # items/search　itemの検索を行う
+  def search
+    search_name = params[:search][:name]
+    search_kind = params[:search][:kind]
+
+    @items = Item.page(params[:page]).per(10)
+    if search_kind.present? and search_kind.to_i > 0
+      @items = @items.where(kind: search_kind)
+    elsif search_name.present?
+      @items = @items.where("name like '%#{search_name}%'")
+    end
+    render :index, layout: "application_with_navbar"
   end
 
   def create
@@ -40,13 +60,22 @@ class ItemsController < ApplicationController
         begin
           @item.destroy
         rescue
+<<<<<<< HEAD
         messages = ""
           @item.errors.full_messages.each{|msg| messages += "#{msg}¥n"}
+=======
+          messages = ""
+          @item.errors.full_messages.each {|msg| messages += "#{msg}¥n"}
+>>>>>>> e5fb28bd7e03d40c370c7d752152a9f0b8314ba3
           flash[:alert]= messages
           redirect_to("/items/delete") and return
         end
       else # @item = nilだったら
+<<<<<<< HEAD
         set_flash(:alert,"#{item_serial_number}のアイテムは存在しません")
+=======
+        flash[:alert] = "#シリアルナンバーが{item_serial_number}のアイテムは存在しません"
+>>>>>>> e5fb28bd7e03d40c370c7d752152a9f0b8314ba3
         redirect_to("/items/delete") and return
       end
     end
