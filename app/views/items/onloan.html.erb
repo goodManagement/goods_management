@@ -1,0 +1,26 @@
+<h1>貸出中一覧</h1>
+
+<table class="table table-striped">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Serial Number</th>
+      <th scope="col">DeadLine</th>
+      <th scope="col">User Name</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% Item.lent_items.each_with_index do |item,i| %>
+      <tr class="<%= add_hurry_class(item.current_lending) %> font">
+        <th scope="row"><%= i+1 %></th>
+        <td><%=item.name%></td>
+        <td><%=item.serial_number%></td>
+        <td><%=item.current_lending.dead_line%>まで</td>
+        <td><%=item.current_lending.user.username%></td>
+      </tr>
+    <% end %>
+  </tbody>
+
+</table>

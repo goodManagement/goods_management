@@ -62,7 +62,7 @@
             <td><%= item.current_lending.dead_line %>まで</td>
           <% else %>
             <td><span class="badge badge-blue">貸出可</span></td>
-            <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#lending-lend-modal" data-item-name="<%= item.name %>" data-item-id="<%= item.id %>">貸りる</button></td>
+            <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#lending-modal" data-item-name="<%= item.name %>" data-item-id="<%= item.id %>" data-judgemodal="lend">貸りる</button></td>
           <% end %>
         </tr>
       <% end %>
@@ -71,4 +71,4 @@
   </table>
 </div>
 
-<%= render 'layouts/lending_lend_modal' %>
+<%= render 'layouts/lending_modal' %>

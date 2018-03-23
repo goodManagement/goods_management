@@ -1,0 +1,63 @@
+
+<!-- モーダルダイアログ -->
+  <div class="modal" id="lending-modal" tabindex="-1" role="dialog" aria-labelledby="lending-modal-label" aria-hidden="true" data-show="true" data-keyboard="false" data-backdrop="static">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">
+            <span aria-hidden="true">&#215;</span><span class="sr-only">閉じる</span>
+          </button>
+          <h4 class="modal-title">Modal Title</h4>
+        </div><!-- /modal-header -->
+
+        <!-- モーダルの判別 -->
+        <%= hidden_field :judge, :lend_or_renew, :class=>'judgement' %>
+
+        <% if params[:lend_or_renew]==1 %>
+          <!-- 延長モーダルの表示 -->
+          <%= render 'layouts/renew_form' %>
+
+        <%else%>
+          <!-- 貸出モーダルの表示 -->
+          <%= render 'layouts/lend_form' %>
+        <%end%> <!-- モーダル判別ifのend -->
+
+    </div> <!-- /.modal-content -->
+  </div> <!-- /.modal-dialog -->
+</div> <!-- /.modal -->
+
+  <script>
+  $(function() {
+     'use strict';
+    // JavaScript で表示
+
+
+    // ダイアログ表示前にJavaScriptで操作する
+    $('#lending-modal').on('show.bs.modal', function(event) {
+      var button = $(event.relatedTarget);
+      var title = button.text();
+      var item_name = button.data('item-name');
+      var item_id = button.data('item-id');
+      var modal = $(this);
+      modal.find('.modal-name').text(item_name);
+      modal.find('.modal-title').text(title);
+      if(button.data('judgemodal')=="renew") {
+        modal.find('#update_item_id').val(item_id);
+        modal.find('.judgement').val(1);
+      }else {
+        modal.find('#lending_item_id').val(item_id);
+        modal.find('.judgement').val(2);
+      }
+
+      //modal.find('.modal-body input').val(recipient);
+    });
+
+
+    $('.datetimepicker').datetimepicker({
+      format: 'YYYY-MM-DD',
+      minDate: moment()
+    });
+
+  });
+  </script>

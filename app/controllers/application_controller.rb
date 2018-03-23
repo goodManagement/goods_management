@@ -37,4 +37,8 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def set_flash(alert_type,text)
+    flash[alert_type]="#{text}"
+  end
+
 end

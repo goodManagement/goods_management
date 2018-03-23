@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "items/onloan" => "items#onloan"
   get "items/delete" => "items#delete"
   delete "items" => "items#destroy"
   resources :items, except: :destroy
