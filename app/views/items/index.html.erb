@@ -4,7 +4,7 @@
   <div class="row　text-center">
     <div class="col-xs-8 col-xs-offset-2">
 
-      <%= form_tag items_search_path do %>
+      <%= form_tag({controller: "items", action: "index"}, method: "get") do %>
         <div class="input-group">
           <div class="input-group-btn search-panel">
             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
@@ -20,8 +20,9 @@
             </ul>
           </div>
 
-          <%= hidden_field :search, :kind, id: "search_kind"  %>
-          <%= text_field :search, :name, class: "form-control", placeholder: "Search by Name" %>
+          <%= hidden_field "", :kind, id: "search_kind"  %>
+          <%= hidden_field "", :filter, id: "search_filter", value: params[:filter] %>
+          <%= text_field "", :name, class: "form-control", placeholder: "Search by Name" %>
 
           <span class="input-group-btn">
             <%= button_tag '', type: "submit", class: "btn btn-default" do %>
