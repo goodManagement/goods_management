@@ -1,4 +1,10 @@
 module ApplicationHelper
+
+  # flashをsetしていく
+  def set_flash(message_type, message)
+    flash[message_type] = message
+  end
+
   # flashを表示する
   def show_flash
     messages = ""
@@ -24,8 +30,8 @@ module ApplicationHelper
           <span class="caret"></span>
         </a>
         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <li><a class="dropdown-item" href="items/new">物品追加</a></li>
-          <li><a class="dropdown-item" href="items/delete">物品削除</a></li>
+          <li><a class="dropdown-item" href="/items/new">物品追加</a></li>
+          <li><a class="dropdown-item" href="/items/delete">物品削除</a></li>
         </ul>
       </li>
       EOF

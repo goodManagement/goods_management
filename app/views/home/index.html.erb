@@ -1,4 +1,4 @@
-<h1><%= current_user.username %>の借りてるやつ</h1>
+<h1><%= current_user.username %>が借りてる物品</h1>
 
 <table class="table table-striped">
   <thead class="thead-dark">
@@ -20,12 +20,14 @@
         <td><%=lending.item.serial_number%></td>
         <td><%=lending.dead_line%></td>
         <td>
-          <%= link_to "Return", home_back_path, method: :post, id: lending.item.serial_number, class: "font btn btn-success" %>
-
+          <%# link_to "Return", home_back_path, method: :post, id: lending.item.serial_number, class: "font btn btn-success" %>
+          <%= button_to "返却", { controller: "home", action: "return_item", lending_id: lending.id}, method: :post, id: lending.item.serial_number, class: "font btn btn-success" %>
         </td>
         <td>
-          <!-- <%= link_to("Renew","/home/renew",{method: :post, id: lending.item.serial_number, :class =>"font btn btn-primary"}) %> -->
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#lending-modal" data-item-name="<%= lending.item.name %>" data-item-id="<%= lending.item.id %>" data-judgemodal="renew">延長</button>
+          <%= button_tag "延長", class: "btn btn-primary", data: { "toggle" => "modal", "target" => "#lending-modal", "item-name" => lending.item.name, "item-id" => lending.item.id, "judgemodal" => "renew" } %>
+
+          <%# button_tag "延長", class: "btn btn-primary", data: { "toggle" => "modal", "target" => "#{lending-modal}", "item_name" => lending.item.name, "item_id" => lending.item.id, "judgemodal" => "renew" } %>
+          <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#lending-modal" data-item-name="<%= lending.item.name %>" data-item-id="<%= lending.item.id %>" data-judgemodal="renew">延長</button> -->
         </td>
       </tr>
     <% end %>
@@ -34,5 +36,5 @@
 </table>
 
 
-<% # modal %>
+<%# modal %>
 <%= render "layouts/lending_modal" %>

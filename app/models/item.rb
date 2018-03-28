@@ -12,6 +12,7 @@ class Item < ApplicationRecord
     lendings.order(:updated_at).select { |lending| lending.is_lent == true }.first
   end
 
+
   # 今現在貸し出されているitemを全取得する
   def self.lent_items(page)
     Item.to_kaminari_object(page, Item.all.select {|item| item.current_lending.present? })
@@ -22,10 +23,14 @@ class Item < ApplicationRecord
     Item.to_kaminari_object(page, Item.all.select {|item| item.current_lending.blank? })
   end
 
+
+
   private
   # kaminariオブジェクトにする
   def self.to_kaminari_object(page, array)
     Item.page(page).per(10).where(id: array.map {|element| element.id } )
   end
+
+
 
 end

@@ -36,21 +36,17 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-   if @item.save
+    if @item.save
       flash[:notice]="アイテムが作成されました"
-       redirect_to("/items/new")
-   else
-     messages = ""
-     @item.errors.full_messages.each{|msg| messages += "#{msg}¥n"}
-
-     flash[:alert]= messages
       redirect_to("/items/new")
-   end
+    else
+      messages = ""
+      @item.errors.full_messages.each{|msg| messages += "#{msg}¥n"}
 
-  end
+      flash[:alert]= messages
+      redirect_to("/items/new")
+    end
 
-  def item_params
-    params.require(:item).permit(:name, :serial_number,:kind)
   end
 
   def destroy
@@ -76,11 +72,16 @@ class ItemsController < ApplicationController
   end
 
   def delete
-      render :delete, layout: "application_with_navbar"
+    render :delete, layout: "application_with_navbar"
   end
 
   def onloan
-      render :onloan, layout: "application_with_navbar"
+    render :onloan, layout: "application_with_navbar"
+  end
+
+  private
+  def item_params
+    params.require(:item).permit(:name, :serial_number,:kind)
   end
 
 end
