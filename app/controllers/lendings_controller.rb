@@ -6,7 +6,7 @@ class LendingsController < ApplicationController
       redirect_to controller: 'home', action: 'index'
     else
       messages = ""
-      @lending.errors.full_messages.each{|msg| messages += "#{msg}¥n"}
+      @lending.errors.full_messages.each{ |msg| messages += "#{msg}¥n" }
 
       flash[:alert]= messages
       redirect_to  controller: 'home', action: 'index'
@@ -18,12 +18,12 @@ class LendingsController < ApplicationController
     if !@lending.is_renewed?
       @lending.update(dead_line_params)
       @lending.updated_at=Time.current
-      flash[:notice]="#{@lending.dead_line}まで延長しました"
-      redirect_to("/home/index")
+      set_flash(:notice, "#{@lending.item.name}を#{@lending.dead_line}まで延長しました")
     else
-      flash[:alert]="#{@lending.item.name}は延長できませんでした"
-      redirect_to("/home/index")
+      set_flash(:alert, "#{@lending.item.name}は延長できませんでした")
     end
+    redirect_to("/home/index")
+
   end
 
   def dead_line_params
