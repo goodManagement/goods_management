@@ -13,7 +13,7 @@
   </thead>
 
   <tbody>
-    <% @lendings.select{ |lending| lending.item.present? }.each_with_index do |lending,i| %>
+    <% @lendings.each_with_index do |lending,i| %>
       <tr class="<%= add_hurry_class(lending) %> font">
         <th scope="row"><%= i+1 %></th>
         <td><%=lending.item.name%></td>
@@ -26,7 +26,6 @@
         <td>
           <%= button_tag "延長", class: "btn btn-primary", data: { "toggle" => "modal", "target" => "#lending-modal", "item-name" => lending.item.name, "item-id" => lending.item.id, "judgemodal" => "renew" } %>
 
-          <%# button_tag "延長", class: "btn btn-primary", data: { "toggle" => "modal", "target" => "#{lending-modal}", "item_name" => lending.item.name, "item_id" => lending.item.id, "judgemodal" => "renew" } %>
           <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#lending-modal" data-item-name="<%= lending.item.name %>" data-item-id="<%= lending.item.id %>" data-judgemodal="renew">延長</button> -->
         </td>
       </tr>

@@ -37,13 +37,13 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     if @item.save
-      flash[:notice]="アイテムが作成されました"
+      set_flash(:notice, "アイテムが作成されました")
       redirect_to("/items/new")
     else
       messages = ""
       @item.errors.full_messages.each{|msg| messages += "#{msg}¥n"}
+      set_flash(:alert, messages)
 
-      flash[:alert]= messages
       redirect_to("/items/new")
     end
 
@@ -59,7 +59,7 @@ class ItemsController < ApplicationController
         rescue
           messages = ""
           @item.errors.full_messages.each {|msg| messages += "#{msg}¥n"}
-          flash[:alert]= messages
+          set_flash(:alert, messages)
           redirect_to("/items/delete") and return
         end
       else # @item = nilだったら
@@ -76,6 +76,7 @@ class ItemsController < ApplicationController
   end
 
   def onloan
+    @items = Item.lent_items(params[:page])
     render :onloan, layout: "application_with_navbar"
   end
 

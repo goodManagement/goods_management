@@ -13,7 +13,7 @@ class HomeController < ApplicationController
     lending = Lending.search_with_id(params[:lending_id])
     lending
     if lending.return_item
-      flash[:success] = "返却が完了しました"
+      set_flash(:success, "返却が完了しました")
     else
       set_flash(:danger, "返却時にエラーが生じました")
     end

@@ -12,7 +12,7 @@
   </thead>
 
   <tbody>
-    <% Item.lent_items(params[:page]).each_with_index do |item,i| %>
+    <% @items.each_with_index do |item,i| %>
       <tr class="<%= add_hurry_class(item.current_lending) %> font">
         <th scope="row"><%= i+1 %></th>
         <td><%=item.name%></td>
