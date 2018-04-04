@@ -21,10 +21,10 @@
         <td><%=lending.dead_line%></td>
         <td>
           <%# link_to "Return", home_back_path, method: :post, id: lending.item.serial_number, class: "font btn btn-success" %>
-          <%= button_to "返却", { controller: "home", action: "return_item", lending_id: lending.id}, method: :post, id: lending.item.serial_number, class: "font btn btn-success" %>
+          <%= button_to "返却", { controller: "home", action: "return_item", lending_id: lending.id}, method: :post, id: lending.item.id, class: "font btn btn-success" %>
         </td>
         <td>
-          <%= button_tag "延長", class: "btn btn-primary", data: { "toggle" => "modal", "target" => "#lending-modal", "item-name" => lending.item.name, "item-id" => lending.item.id, "judgemodal" => "renew" } %>
+          <%= button_tag "延長", class: "btn btn-primary", data: { "toggle" => "modal", "target" => "#renew-modal", "item-name" => lending.item.name, "lending-id" => lending.id, "judgemodal" => "renew" } %>
         </td>
       </tr>
     <% end %>
@@ -34,4 +34,4 @@
 
 
 <%# modal %>
-<%= render "layouts/lending_modal" %>
+<%= render "layouts/renew_modal" %>

@@ -9,17 +9,20 @@ class LendingsController < ApplicationController
       @lending.errors.full_messages.each{ |msg| messages += "#{msg}¥n" }
 
       set_flash(:alert, messages)
-      redirect_to  controller: 'home', action: 'index'
+      redirect_to  controller: 'items', action: 'index'
     end
   end
 
   def update
-    @lending = Lending.find_by(item_id: params[:update][:item_id])
+    @lending = Lending.search_with_id(params[:update][:lending_id])
     if !@lending.is_renewed?
-      @lending = @lending.update(dead_line_params)
+      @lending.update(dead_line_params)
+
+      p @lending
+      # @lending.update_attributes = { dead_line: dead_line_params.dead_line}
       set_flash(:notice, "#{@lending.item.name}を#{@lending.dead_line}まで延長しました")
     else
-      set_flash(:alert, "#{@lending.item.name}は延長できませんでした")
+      set_flash(:alert, "#{@lending.item.name}はすでに一度延長されています")
     end
     redirect_to controller: 'home', action: 'index'
   end

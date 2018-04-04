@@ -1,0 +1,44 @@
+
+<script>
+$(function() {
+  'use strict';
+  // JavaScript で表示
+
+  // ダイアログ表示前にJavaScriptで操作する
+  $('#renew-modal').on('show.bs.modal', function(event) {
+    var button = $(event.relatedTarget);
+    var title = button.text();
+    var item_name = button.data('item-name');
+    var lending_id = button.data('lending-id');
+
+    var modal = $(this);
+    modal.find('.modal-name').text(item_name);
+    modal.find('.modal-title').text(title);
+    modal.find('#update_lending_id').val(lending_id);
+  });
+
+  $('.datetimepicker').datetimepicker({
+    format: 'YYYY-MM-DD',
+    minDate: moment()
+  });
+
+});
+</script>
+
+
+<!-- モーダルダイアログ -->
+<div class="modal" id="renew-modal" tabindex="-1" role="dialog" aria-labelledby="lending-modal-label" aria-hidden="true" data-show="true" data-keyboard="false" data-backdrop="static">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">
+          <span aria-hidden="true">&#215;</span><span class="sr-only">閉じる</span>
+        </button>
+        <h4 class="modal-title">Modal Title</h4>
+      </div><!-- /modal-header -->
+      <!-- 延長モーダルの表示 -->
+      <%= render 'layouts/renew_form' %>
+    </div> <!-- /.modal-content -->
+  </div> <!-- /.modal-dialog -->
+</div> <!-- /.modal -->

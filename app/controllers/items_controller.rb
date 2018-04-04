@@ -4,7 +4,6 @@ class ItemsController < ApplicationController
   DEAD_LINE = 4
 
   def index
-
     filter = params[:filter].to_i
 
     @items = Item.page(params[:page]).per(10)
@@ -77,6 +76,12 @@ class ItemsController < ApplicationController
 
   def onloan
     @items = Item.lent_items(params[:page])
+    filter = params[:filter].to_i
+
+    if filter == DEAD_LINE
+      @items = Lending.dead_items(params[:page])
+      p @items
+    end
     render :onloan, layout: "application_with_navbar"
   end
 
