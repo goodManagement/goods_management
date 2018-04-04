@@ -58,3 +58,21 @@
     }
   }
 }
+
+// items#onloanに対応
+.items-onloan-wrapper {
+  tbody {
+    .hurry {
+      th, td {
+        color:red;
+        font-weight: bold;
+      }
+    }
+    .font {
+      th, td {
+        font-size: 2vh;
+      }
+    }
+  }
+}
+// end of items#onloan

@@ -1,18 +1,18 @@
-<%= onloan_title %>
+<div class="items-onloan-wrapper">
+  <%= onloan_title %>
+  <table class="table table-striped">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">物品名</th>
+        <th scope="col">シリアルナンバー</th>
+        <th scope="col">貸出期日</th>
+        <th scope="col">貸与者名</th>
+      </tr>
+    </thead>
 
-<table class="table table-striped">
-  <thead class="thead-dark">
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">物品名</th>
-      <th scope="col">シリアルナンバー</th>
-      <th scope="col">貸出期日</th>
-      <th scope="col">貸与者名</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @items.each_with_index do |item,i| %>
+    <tbody>
+      <% @items.each_with_index do |item,i| %>
       <tr class="<%= add_hurry_class(item.current_lending) %> font">
         <th scope="row"><%= i+1 %></th>
         <td><%=item.name%></td>
@@ -20,7 +20,7 @@
         <td><%=item.current_lending.dead_line%>まで</td>
         <td><%=item.current_lending.user.username%></td>
       </tr>
-    <% end %>
-  </tbody>
-
-</table>
+      <% end %>
+    </tbody>
+  </table>
+</div>

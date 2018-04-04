@@ -1,36 +1,36 @@
-<h1><%= current_user.username %>が借りてる物品</h1>
-
-<table class="table table-striped">
-  <thead class="thead-dark">
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Name</th>
-      <th scope="col">Serial Number</th>
-      <th scope="col">DeadLine</th>
-      <th scope="col">Return</th>
-      <th scope="col">Renew</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @lendings.each_with_index do |lending,i| %>
-      <tr class="<%= add_hurry_class(lending) %> font">
-        <th scope="row"><%= i+1 %></th>
-        <td><%=lending.item.name%></td>
-        <td><%=lending.item.serial_number%></td>
-        <td><%=lending.dead_line%></td>
-        <td>
-          <%# link_to "Return", home_back_path, method: :post, id: lending.item.serial_number, class: "font btn btn-success" %>
-          <%= button_to "返却", { controller: "home", action: "return_item", lending_id: lending.id}, method: :post, id: lending.item.id, class: "font btn btn-success" %>
-        </td>
-        <td>
-          <%= button_tag "延長", class: "btn btn-primary", data: { "toggle" => "modal", "target" => "#renew-modal", "item-name" => lending.item.name, "lending-id" => lending.id, "judgemodal" => "renew" } %>
-        </td>
+<div class="home-index-wrapper">
+  <h1><%= current_user.username %>が借りてる物品</h1>
+  <table class="table table-striped">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Serial Number</th>
+        <th scope="col">DeadLine</th>
+        <th scope="col">Return</th>
+        <th scope="col">Renew</th>
       </tr>
-    <% end %>
-  </tbody>
+    </thead>
 
-</table>
+    <tbody>
+      <% @lendings.each_with_index do |lending,i| %>
+        <tr class="<%= add_hurry_class(lending) %> font">
+          <th scope="row"><%= i+1 %></th>
+          <td><%=lending.item.name%></td>
+          <td><%=lending.item.serial_number%></td>
+          <td><%=lending.dead_line%></td>
+          <td>
+            <%# link_to "Return", home_back_path, method: :post, id: lending.item.serial_number, class: "font btn btn-success" %>
+            <%= button_to "返却", { controller: "home", action: "return_item", lending_id: lending.id}, method: :post, id: lending.item.id, class: "font btn btn-success" %>
+          </td>
+          <td>
+            <%= button_tag "延長", class: "btn btn-primary", data: { "toggle" => "modal", "target" => "#renew-modal", "item-name" => lending.item.name, "lending-id" => lending.id, "judgemodal" => "renew" } %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 
 
 <%# modal %>
