@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 class Users::PasswordsController < Devise::PasswordsController
-  :require_no_authentication, except: [:edit, :update]
-  before_action :authenticate_user! except: [:edit, :update]
 
   # GET /resource/password/new
   # def new
