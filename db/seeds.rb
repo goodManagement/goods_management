@@ -11,12 +11,12 @@ user_names = {"pokotsun" => true, "abetaku" => true, "nomy" => true,
 
 
 
-user_names.each do |name, val|
-  user = User.new(
-    :username => name,
-    :is_admin => val,
-    :email => "",
-    :password => "abcdef")
-  user.save!
+# user_names.each do |name, val|
+#   user = User.new(
+#     :username => name,
+#     :is_admin => val,
+#     :email => "",
+#     :password => "abcdef")
+#   user.save!
 
 end

@@ -18,8 +18,6 @@ class LendingsController < ApplicationController
     if !@lending.is_renewed?
       @lending.update(dead_line_params)
 
-      p @lending
-      # @lending.update_attributes = { dead_line: dead_line_params.dead_line}
       set_flash(:notice, "#{@lending.item.name}を#{@lending.dead_line}まで延長しました")
     else
       set_flash(:alert, "#{@lending.item.name}はすでに一度延長されています")
