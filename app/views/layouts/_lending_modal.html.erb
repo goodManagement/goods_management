@@ -15,16 +15,8 @@ $(function() {
     modal.find('.modal-name').text(item_name);
     modal.find('.modal-title').text(title);
 
-    // 返却だったら
-    if(button.data('judgemodal')=="renew") {
-      modal.find('#lending_item_id').val(item_id);
-      modal.find('.judgement').val(1);
-    }else { // 貸出だったら
-      modal.find('#lending_item_id').val(item_id);
-      modal.find('.judgement').val(2);
-    }
+    modal.find('#lending_item_id').val(item_id);
 
-    //modal.find('.modal-body input').val(recipient);
   });
 
   $('.datetimepicker').datetimepicker({
@@ -48,16 +40,8 @@ $(function() {
         <h4 class="modal-title">Modal Title</h4>
       </div><!-- /modal-header -->
 
-      <!-- モーダルの判別 -->
-      <%= hidden_field :judge, :lend_or_renew, :class=>'judgement' %>
-
-      <% if params[:lend_or_renew]==1 %>
-        <!-- 延長モーダルの表示 -->
-        <%= render 'layouts/renew_form' %>
-      <%else%>
-        <!-- 貸出モーダルの表示 -->
-        <%= render 'layouts/lend_form' %>
-      <%end%> <!-- モーダル判別ifのend -->
+      <!-- 貸出モーダルの表示 -->
+      <%= render 'layouts/lend_form' %>
 
     </div> <!-- /.modal-content -->
   </div> <!-- /.modal-dialog -->
