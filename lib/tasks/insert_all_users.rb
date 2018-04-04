@@ -2,6 +2,7 @@ require 'json'
 require 'uri'
 require 'net/http'
 
+p Settings.slack_token
 uri = URI.parse("https://slack.com/api/users.list?token=#{Settings.slack_token}&pretty=1")
 json = Net::HTTP.get(uri)
 result = JSON.parse(json)
