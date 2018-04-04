@@ -1,4 +1,6 @@
 class LendingsController < ApplicationController
+  before_action :authenticate_user!
+  
   def create
     @lending = Lending.new(user_id: params[:lending][:user_id], item_id: params[:lending][:item_id], dead_line:params[:lending][:dead_line], is_lent:true)
     if @lending.save

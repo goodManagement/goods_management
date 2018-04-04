@@ -16,7 +16,7 @@ members.each do |user|
       :username => user['name'],
       :is_admin => false,
       :email => "",
-      :password => "abcdef")
+      :password => "Planningdev2013!")
     if admin_users.include?(user['name'])
       member.is_admin = true
       p user['name']

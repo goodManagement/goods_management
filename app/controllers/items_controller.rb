@@ -1,4 +1,6 @@
 class ItemsController < ApplicationController
+  before_action :authenticate_user!
+  
   IS_NOT_LENT = 2
   IS_LENT = 3
   DEAD_LINE = 4
