@@ -26,12 +26,14 @@ module ApplicationHelper
       html =  <<-EOF
       <li class="nav-item dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-          setting
+          admin setting
           <span class="caret"></span>
         </a>
         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <li><a class="dropdown-item" href="/items/new">物品追加</a></li>
           <li><a class="dropdown-item" href="/items/delete">物品削除</a></li>
+          <li><a class="dropdown-item" href="/admin/edit">管理者の追加</a></li>
+
         </ul>
       </li>
       EOF

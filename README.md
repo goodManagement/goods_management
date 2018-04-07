@@ -5,7 +5,7 @@ application up and running.
 
 Things you may want to cover:
 
-* First of all
+* Things you shold at first 
 1. goodsInfo.csvを `/public/csv`直下に置く
 2. 以下のコマンドを叩く
 `$ rails runner lib/tasks/insert_goods.rb`

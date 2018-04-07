@@ -41,4 +41,12 @@ class ApplicationController < ActionController::Base
     flash[alert_type]="#{text}"
   end
 
+  protected
+  def require_admin
+    unless current_user.is_admin
+        set_flash(:danger, "あなたは管理者ではありません。このメニューは使えません。")
+        redirect_to('/home/index')
+    end
+  end
+
 end

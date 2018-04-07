@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  # admin ユーザーadmin
+  get "admin/edit" => "admin#edit"
+  patch "admin" => "admin#update"
+
   # item
   get "items/onloan" => "items#onloan"
   get "items/delete" => "items#delete"
