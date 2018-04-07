@@ -5,10 +5,15 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-user_names = {"pokotsun" => true, "abetaku" => true, "nomy" => true,
-  "yamako" => false, "koniatsu" => false}
+# user_names = {"pokotsun" => true, "abetaku" => true, "nomy" => true,
+#   "yamako" => false, "koniatsu" => false}
 
-
+  user = User.new(
+    :username => "pokotsun",
+    :is_admin => true,
+    :email => "",
+    :password => "aiueok")
+  user.save!
 
 
 # user_names.each do |name, val|
