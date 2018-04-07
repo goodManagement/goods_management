@@ -8,20 +8,18 @@
 # user_names = {"pokotsun" => true, "abetaku" => true, "nomy" => true,
 #   "yamako" => false, "koniatsu" => false}
 
-  user = User.new(
-    :username => "pokotsun",
-    :is_admin => true,
-    :email => "",
-    :password => "aiueok")
+user = User.new(
+  :username => "pokotsun",
+  :is_admin => true,
+  :email => "",
+  :password => "aiueok")
   user.save!
 
 
-# user_names.each do |name, val|
-#   user = User.new(
-#     :username => name,
-#     :is_admin => val,
-#     :email => "",
-#     :password => "abcdef")
-#   user.save!
-
-end
+  # user_names.each do |name, val|
+  #   user = User.new(
+  #     :username => name,
+  #     :is_admin => val,
+  #     :email => "",
+  #     :password => "abcdef")
+  #   user.save!
