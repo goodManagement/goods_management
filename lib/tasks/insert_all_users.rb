@@ -8,24 +8,26 @@ json = Net::HTTP.get(uri)
 result = JSON.parse(json)
 members = result["members"]
 
-admin_users = ['1060ki', '30000000', 'ko', 'koniatsu', 'pokotsun', 'sono', 'uzaki', 'yusk', 'takumi', 'nomiyamade']
-
 members.each do |user|
-  if user['is_bot'] == false
-    member = User.new(
-      :username => user['name'],
-      :is_admin => false,
-      :email => "",
-      :password => "Planningdev2013!")
-    if admin_users.include?(user['name'])
-      member.is_admin = true
+  begin
+    if user['is_bot'] == false
+      member = User.new(
+        :username => user['name'],
+        :is_admin => false,
+        :email => "",
+        :password => user['name'])
+        p user['name']
+        p user["real_name"]
+        p user["profile"]["email"]
+        p user["is_bot"]
+        p user["is_admin"]
+        p user["is_owner"]
+        member.save!
+      end
+    rescue => e
       p user['name']
-      p user["real_name"]
-      p user["profile"]["email"]
-      p user["is_bot"]
-      p user["is_admin"]
-      p user["is_owner"]
+      p "でエラーが生じました！"
     end
-    member.save!
+
+
   end
-end
