@@ -39,6 +39,20 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
+
+    # レコード数+1の数を下４桁に、kindの数を上1桁に設定し、5桁のserial_numberを生成
+    # @item.serial_number = (@item.kind * 10000) + Item.where(kind: @item.kind).count + 1
+
+    # 入力したkindが初めて入力されたものかを調べる
+    if Item.where(kind: @item.kind).maximum(:serial_number) == nil
+      # nilの場合、1をserial_numberに設定
+      @item.serial_number = (@item.kind * 10000) + Item.where(kind: @item.kind).count + 1;
+    else
+      # 指定したkindに該当するserial_numberの最大値に1を加えた数をserial_numberに設定
+      @item.serial_number = Item.where(kind: @item.kind).maximum(:serial_number) + 1
+    end
+
+
     if @item.save
       set_flash(:notice, "アイテムが作成されました")
       redirect_to("/items/new")
