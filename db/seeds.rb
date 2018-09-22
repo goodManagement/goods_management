@@ -15,7 +15,6 @@ user = User.new(
   :password => "aiueok")
   user.save!
 
-
   # user_names.each do |name, val|
   #   user = User.new(
   #     :username => name,
