@@ -15,6 +15,12 @@ user = User.new(
   :password => "aiueok")
   user.save!
 
+user = User.new(
+  :username => "takumi",
+  :is_admin => true,
+  :email => "",
+  :password => "1234567890")
+  user.save!
 
   # user_names.each do |name, val|
   #   user = User.new(
