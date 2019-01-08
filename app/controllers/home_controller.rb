@@ -28,6 +28,6 @@ class HomeController < ApplicationController
      item.lending.renew_item
    end
    redirect_to("/home/index")
- end
+  end
 
 end
