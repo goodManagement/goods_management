@@ -27,4 +27,10 @@ Rails.application.routes.draw do
   post "home/back" => "home#return_item"
   post "home/renew" => "home#renew_item"
 
+  # api
+  namespace :api, { format: 'json' } do
+    namespace :v1 do # バージョン1を表している
+      resources :users
+    end
+  end
 end
