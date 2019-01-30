@@ -1,4 +1,6 @@
 class Api::V1::ItemsController < ApplicationController
+  before_action :authenticate_user!
+  before_action :require_admin, only: [:new, :create, :destroy, :delete]
 
   IS_NOT_LENT = 2
   IS_LENT = 3

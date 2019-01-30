@@ -31,6 +31,8 @@ Rails.application.routes.draw do
   namespace :api, { format: 'json' } do
     namespace :v1 do # バージョン1を表している
       resources :users
+      resources :items
+      resources :lendings
     end
   end
 end
