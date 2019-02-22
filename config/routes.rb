@@ -30,9 +30,25 @@ Rails.application.routes.draw do
   # api
   namespace :api, { format: 'json' } do
     namespace :v1 do # バージョン1を表している
-      resources :users
-      resources :items
-      resources :lendings
+      namespace :items do
+        get '/', action: 'index'
+        post '/', action: 'search'
+        # resources :items
+      end
+
+      namespace :lendings do
+        get '/', action: 'index'
+        patch '/', action: 'update'
+        post '/', action: 'create'
+        get '/', action: 'dead_line_params'
+        post '/', action:'return_item'
+        post '/', action: 'renew_item'
+      end
+
+      namespace :users do
+        get '/', action: 'index'
+        post '/', action: 'create'
+      end
     end
   end
 end

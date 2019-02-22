@@ -11,6 +11,6 @@ json.lendings do
   json.array!(@lendings) do |lending|
     # json.partial! モデル変数 を使うと、
     # 部分テンプレートを表示する
-    json.partial!(data)
+    json.partial!(lending)
   end
 end
