@@ -30,6 +30,9 @@ Rails.application.routes.draw do
   # api
   namespace :api, { format: 'json' } do
     namespace :v1 do # バージョン1を表している
+
+      mount_devise_token_auth_for 'User', at: 'auth'
+
       namespace :items do
         get '/', action: 'index'
         post '/', action: 'search'

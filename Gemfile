@@ -45,6 +45,10 @@ gem 'devise'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# devise_token_auth導入
+gem 'devise_token_auth'
+gem 'omniauth'
+
 # kaminari導入
 gem 'kaminari', '~>0.17.0'
 # kaminari-bootstrap導入

@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
+  # include DeviseTokenAuth::Concerns::SetUserByToken
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_filter :set_host
   # after_action :flash_clear
 
   # If you have extra params to permit, append them to the sanitizer.
